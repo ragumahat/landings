@@ -1,0 +1,2604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahat & TWC Partnership: Empowering Tier 2/3 SMBs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+
+  <style>
+    /* Global Styles */
+    :root {
+        --primary: #2563eb;
+        --primary-dark: #1d4ed8;
+        --primary-light: #60a5fa;
+        --secondary: #f97316;
+        --secondary-dark: #ea580c;
+        --secondary-light: #fb923c;
+        --dark: #1e293b;
+        --light: #f8fafc;
+        --gray: #64748b;
+        --light-gray: #e2e8f0;
+        --success: #10b981;
+        --danger: #ef4444;
+        --warning: #f59e0b;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        color: var(--dark);
+        line-height: 1.6;
+        background-color: var(--light);
+        overflow-x: hidden;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    /* Table styles */
+    table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin: 20px auto;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    /* More compact table */
+    .compact-table {
+        max-width: 800px;
+        margin: 30px auto;
+    }
+
+    th {
+        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        color: white;
+        padding: 12px 8px;
+        text-align: center;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 0.95em;
+        border-right: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    th:last-child {
+        border-right: none;
+    }
+
+    td {
+        padding: 10px 8px;
+        border-bottom: 1px solid #e0e0e0;
+        border-right: 1px solid #e0e0e0;
+        vertical-align: top;
+        transition: background-color 0.2s ease;
+        font-size: 0.85em;
+    }
+
+    td:last-child {
+        border-right: none;
+    }
+
+    tr:last-child td {
+        border-bottom: none;
+    }
+
+    tr:nth-child(even) {
+        background-color: #ffffff;
+    }
+
+    tr:nth-child(odd) {
+        background-color: #f5f7fa;
+    }
+
+    tr:hover td:not(.industry-column) {
+        background-color: #f0f4ff;
+    }
+
+    .industry-column {
+        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        color: white;
+        font-weight: 600;
+        text-align: center;
+        font-family: 'Open Sans', sans-serif;
+        border-right: 1px solid rgba(255, 255, 255, 0.3);
+        font-size: 0.9em;
+    }
+
+    ol {
+        margin: 0;
+        padding-left: 18px;
+        font-size: 0.85em;
+    }
+
+    ol li {
+        margin-bottom: 3px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    ol li:last-child {
+        margin-bottom: 0;
+    }
+
+    h1, h2, h3, h4 {
+        line-height: 1.2;
+        margin-bottom: 1rem;
+        font-weight: 700;
+        font-family: 'Raleway', sans-serif;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+        letter-spacing: -1px;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 2rem;
+        letter-spacing: -0.5px;
+        position: relative;
+        text-align: center;
+    }
+
+    h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        border-radius: 3px;
+    }
+
+    h3 {
+        font-size: 1.75rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1.2rem;
+        color: var(--dark);
+    }
+
+    p {
+        margin-bottom: 1.5rem;
+        font-size: 1.125rem;
+    }
+
+    ul {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+    }
+
+    li {
+        margin-bottom: 0.75rem;
+        font-size: 1.05rem;
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--primary);
+        transition: color 0.3s ease;
+    }
+
+    a:hover {
+        color: var(--primary-dark);
+    }
+
+    /* Button Styles */
+    .btn {
+        display: inline-block;
+        background-color: var(--primary);
+        color: white;
+        padding: 15px 30px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.125rem;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .btn:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+    }
+
+    .btn-secondary {
+        background-color: white;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+        margin-left: 15px;
+    }
+
+    .btn-secondary:hover {
+        background-color: var(--light);
+        color: var(--primary-dark);
+        border-color: var(--primary-dark);
+    }
+
+    .btn-form {
+        width: 100%;
+        background-color: var(--secondary);
+    }
+
+    .btn-form:hover {
+        background-color: var(--secondary-dark);
+        box-shadow: 0 10px 25px rgba(249, 115, 22, 0.2);
+    }
+
+    /* Hero Section */
+    .hero {
+        background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        color: white;
+        padding: 100px 0 80px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+        background-size: cover;
+        opacity: 0.3;
+        z-index: 0;
+
+    }
+
+    .hero::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: linear-gradient(to top, var(--light), transparent);
+        z-index: 1;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .hero h1 {
+        margin-bottom: 1.5rem;
+        color: white;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero p {
+        font-size: 1.5rem;
+        margin-bottom: 2.5rem;
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    /* Challenge Section */
+    .challenge {
+        background-color: white;
+        position: relative;
+        z-index: 2;
+    }
+
+    .blockquote {
+        font-size: 1.5rem;
+        font-weight: 300;
+        line-height: 1.5;
+        padding: 25px 30px;
+        border-left: 4px solid var(--primary);
+        background-color: var(--light);
+        margin: 40px 0;
+        border-radius: 0 8px 8px 0;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        text-align: center;
+    }
+
+   .challenge-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+     gap: 25px;
+     margin: 3rem auto;
+     max-width: 1000px;
+     padding: 0 60px;
+     justify-content: center;
+   }
+
+    .challenge-card {
+        background-color: var(--light);
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        border: 1px solid rgba(226, 232, 240, 0.7);
+    }
+
+    .challenge-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        border-color: var(--primary-light);
+    }
+
+    .challenge-icon {
+        font-size: 2.5rem;
+        color: var(--secondary);
+        margin-bottom: 1.5rem;
+        text-align: center;
+        background: linear-gradient(135deg, var(--secondary-light), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .challenge-icon i {
+        filter: drop-shadow(0 2px 5px rgba(249, 115, 22, 0.3));
+    }
+
+    /* Solution Section */
+    .solution {
+        background-color: var(--light);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .solution::before {
+        content: '';
+        position: absolute;
+        top: -150px;
+        right: -150px;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background: radial-gradient(rgba(37, 99, 235, 0.05), transparent 70%);
+        z-index: 0;
+    }
+
+    .feature-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin-bottom: 3rem;
+    }
+
+    .feature-card {
+        background-color: white;
+        padding: 35px 25px;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        z-index: 1;
+        border: 1px solid rgba(226, 232, 240, 0.7);
+    }
+
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 65px;
+        height: 65px;
+        background-color: rgba(37, 99, 235, 0.1);
+        color: var(--primary);
+        font-size: 1.8rem;
+        border-radius: 16px;
+        margin-bottom: 1.5rem;
+    }
+
+    .feature-card h3 {
+        margin-top: 0;
+        font-size: 1.5rem;
+    }
+
+    .feature-card p {
+        color: var(--gray);
+    }
+
+    /* Table Styling */
+    .table-container {
+        overflow-x: auto;
+        margin: 2rem auto;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        border-radius: 12px;
+        max-width: 800px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 1rem;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    thead {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        color: white;
+    }
+
+    th, td {
+        padding: 15px 20px;
+        text-align: left;
+        border-bottom: 1px solid var(--light-gray);
+    }
+
+    thead th {
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: rgba(237, 242, 247, 0.5);
+    }
+
+    tbody tr:hover {
+        background-color: rgba(237, 242, 247, 0.8);
+    }
+
+    .highlight {
+        font-weight: 700;
+        color: var(--primary);
+    }
+
+    /* PoP Section */
+    .pop {
+        background-color: white;
+        position: relative;
+    }
+
+    .pop p {
+        text-align: center;
+    }
+
+    .pop-steps {
+        display: flex;
+        margin: 3rem 0;
+        position: relative;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .pop-steps::before {
+        content: '';
+        position: absolute;
+        top: 50px;
+        left: 38px;
+        width: 4px;
+        height: calc(100% - 100px);
+        background-color: var(--light-gray);
+        z-index: 0;
+    }
+
+    .step {
+        flex: 1;
+        min-width: 250px;
+        padding: 0 20px;
+        position: relative;
+        z-index: 1;
+        text-align: center;
+    }
+
+    .step-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        color: white;
+        font-size: 2rem;
+        font-weight: 700;
+        border-radius: 50%;
+        margin: 0 auto 1.5rem auto;
+        box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+    }
+
+    .step h3 {
+        margin-top: 1rem;
+        text-align: center;
+    }
+
+
+
+
+
+ header h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+            .tabs-container {
+	            max-width: 1200px;
+	            margin: 0 auto;
+	        }
+
+	        /* Main Tabs */
+	        .tabs {
+	            display: flex;
+	            border-bottom: 1px solid var(--gray-300);
+	            margin-bottom: 30px;
+	            overflow-x: auto;
+	            scrollbar-width: none;
+	        }
+
+	        .tabs::-webkit-scrollbar {
+	            display: none;
+	        }
+
+	        .tab-button {
+	            padding: 12px 24px;
+	            background: none;
+	            border: none;
+	            border-bottom: 3px solid transparent;
+	            cursor: pointer;
+	            font-weight: 600;
+	            color: var(--gray-700);
+	            transition: all 0.3s ease;
+	            white-space: nowrap;
+	            font-size: 1.1rem;
+	        }
+
+	        .tab-button.active {
+	            color: var(--primary);
+	            border-bottom-color: var(--secondary);
+	        }
+
+	        .tab-button:hover:not(.active) {
+	            color: var(--primary-light);
+	            border-bottom-color: var(--gray-300);
+	        }
+
+	        .tab-content {
+	            display: none;
+	        }
+
+	        .tab-content.active {
+	            display: block;
+	        }
+
+	        /* App Categories Section */
+			.app-categories {
+			    margin-top: 20px;
+			}
+
+			/* Tab Design within TWC */
+			.app-categories .tabs {
+			    display: flex;
+			    border-bottom: 1px solid var(--gray-300);
+			    margin-bottom: 20px;
+			    overflow-x: auto;
+			    scrollbar-width: none;
+			}
+
+			.app-categories .tabs::-webkit-scrollbar {
+			    display: none;
+			}
+
+			.app-categories .tab-button {
+			    padding: 10px 20px;
+			    background: none;
+			    border: none;
+			    border-bottom: 3px solid transparent;
+			    cursor: pointer;
+			    font-weight: 600;
+			    color: var(--gray-700);
+			    transition: all 0.3s ease;
+			    white-space: nowrap;
+			    font-size: 0.95rem;
+			}
+
+			.app-categories .tab-button.active {
+			    color: var(--primary);
+			    border-bottom-color: var(--secondary);
+			}
+
+			.app-categories .tab-button:hover:not(.active) {
+			    color: var(--primary-light);
+			    border-bottom-color: var(--gray-300);
+			}
+
+			/* App Selection and Display Area */
+			.app-content {
+			    display: flex;
+			    gap: 30px;
+			    background-color: var(--gray-100);
+			    border-radius: 10px;
+			    padding: 20px;
+			    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+			}
+
+			.app-list {
+			    width: 250px;
+			    border-right: 1px solid var(--gray-300);
+			    padding-right: 20px;
+			    max-height: 500px;
+			    overflow-y: auto;
+			}
+
+			.app-item {
+			    padding: 12px 15px;
+			    margin-bottom: 8px;
+			    border-radius: 6px;
+			    cursor: pointer;
+			    transition: all 0.3s ease;
+			    font-size: 0.9rem;
+			}
+
+			.app-item:hover {
+			    background-color: var(--light);
+			}
+
+			.app-item.active {
+			    background-color: var(--primary);
+			    color: white;
+			}
+
+			.app-details {
+			    flex: 1;
+			    padding: 20px;
+			    border-radius: 10px;
+			    background-color: white;
+			    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+			}
+
+			.app-details h3 {
+			    color: var(--primary);
+			    margin-bottom: 15px;
+			    font-size: 1.5rem;
+			    font-weight: 600;
+			    text-align: left;
+			}
+
+			.app-details p {
+			    color: var(--gray-700);
+			    margin-bottom: 20px;
+			    font-size: 0.95rem;
+			    text-align: left;
+			    line-height: 1.5;
+			}
+
+			.app-details h4 {
+			    font-size: 1.1rem;
+			    margin-bottom: 12px;
+			    color: var(--dark);
+			    text-align: left;
+			}
+
+			.features-list {
+			    list-style-type: none;
+			    margin-bottom: 20px;
+			    padding-left: 0;
+			}
+
+			.features-list li {
+			    margin-bottom: 10px;
+			    padding-left: 25px;
+			    position: relative;
+			    font-size: 0.9rem;
+			    text-align: left;
+			}
+
+			.features-list li:before {
+			    content: '\f00c';
+			    font-family: 'Font Awesome 6 Free';
+			    font-weight: 900;
+			    position: absolute;
+			    left: 0;
+			    color: var(--accent);
+			}
+
+			.tech-specs {
+			    display: flex;
+			    gap: 20px;
+			    margin-top: 20px;
+			}
+
+			.spec-box {
+			    flex: 1;
+			    background-color: var(--light);
+			    padding: 15px;
+			    border-radius: 6px;
+			    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+			}
+
+			.spec-box h4 {
+			    font-size: 1rem;
+			    margin-bottom: 10px;
+			    color: var(--primary);
+			    font-weight: 600;
+			    text-align: left;
+			}
+
+			.spec-box p {
+			    margin-bottom: 8px;
+			    font-size: 0.85rem;
+			    text-align: left;
+}
+
+/* Responsive styles for the app categories */
+@media (max-width: 992px) {
+    .app-content {
+        flex-direction: column;
+    }
+
+    .app-list {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--gray-300);
+        padding-right: 0;
+        padding-bottom: 20px;
+        max-height: 200px;
+    }
+
+    .tech-specs {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .app-details {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .app-details h3 {
+        font-size: 1.3rem;
+    }
+
+    .app-details p {
+        font-size: 0.9rem;
+    }
+
+    .features-list li {
+        font-size: 0.85rem;
+    }
+}
+
+	        /* Industry Table Styles */
+	        #smb-content h2 {
+	            text-align: center;
+	            color: var(--primary);
+	            font-size: 1.8rem;
+	            margin-bottom: 24px;
+	            position: relative;
+	            padding-bottom: 12px;
+	            font-weight: 700;
+	        }
+
+
+
+		/* Industry Table Styles */
+		.industry-table {
+		    width: 100%;
+		    border-collapse: collapse;
+		    margin-top: 20px;
+		    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		    border-radius: 8px;
+		    overflow: hidden;
+		    font-size: 0.85rem; /* Slightly reduced from 0.9rem */
+		}
+
+		/* Make parent container handle overflow properly */
+		#smb-content {
+		    overflow-x: auto;
+		    max-width: 100%;
+		    padding-bottom: 15px;
+		}
+
+		.industry-table th {
+		    background: linear-gradient(135deg, #003366 0%, #002140 100%);
+		    color: white;
+		    padding: 10px 5px; /* Reduced horizontal padding */
+		    text-align: center;
+		    font-weight: 600;
+		    letter-spacing: 0.3px;
+		    border-right: 1px solid rgba(255, 255, 255, 0.2);
+		}
+
+		.industry-table th:first-child {
+		    width: 14%; /* Slightly reduced */
+		}
+
+		.industry-table td {
+		    padding: 8px 5px; /* Reduced horizontal padding */
+		    border-bottom: 1px solid #dee2e6;
+		    border-right: 1px solid #dee2e6;
+		    vertical-align: top;
+		}
+
+		.industry-column {
+		    background: linear-gradient(135deg, #003366 0%, #002140 100%);
+		    color: white;
+		    font-weight: 600;
+		    text-align: center;
+		    border-right: 1px solid rgba(255, 255, 255, 0.2);
+		}
+
+		.industry-table ol {
+		    margin: 0;
+		    padding-left: 18px; /* Reduced from 20px */
+		}
+
+		.industry-table li {
+		    margin-bottom: 2px;
+		    white-space: nowrap;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    font-size: 0.82rem; /* Slightly smaller than base */
+		}
+
+		/* Add horizontal scrolling for table container to prevent overflow */
+		.tab-content {
+		    overflow-x: auto;
+}
+
+
+
+	        /* Responsive styles */
+	        @media (max-width: 992px) {
+	            .app-content {
+	                flex-direction: column;
+	            }
+
+	            .app-list {
+	                width: 100%;
+	                border-right: none;
+	                border-bottom: 1px solid var(--gray-300);
+	                padding-right: 0;
+	                padding-bottom: 20px;
+	                max-height: 200px;
+	            }
+
+	            .tech-specs {
+	                flex-direction: column;
+	                gap: 10px;
+	            }
+	        }
+
+	        @media (max-width: 768px) {
+	            header h1 {
+	                font-size: 2rem;
+	            }
+
+	            .tab-button {
+	                padding: 10px 16px;
+	                font-size: 1rem;
+	            }
+
+	            .industry-table {
+	                display: block;
+	                overflow-x: auto;
+	            }
+	        }
+
+	        @media (max-width: 576px) {
+	            header h1 {
+	                font-size: 1.8rem;
+	            }
+
+	            .app-details h3 {
+	                font-size: 1.3rem;
+	            }
+        }
+
+
+
+
+
+
+
+
+    .testimonial {
+        background-color: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        margin: 3rem 0;
+        position: relative;
+        border: 1px solid var(--light-gray);
+    }
+
+    .testimonial::before {
+        content: """;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 8rem;
+        line-height: 1;
+        color: var(--light-gray);
+        z-index: 0;
+    }
+
+    .testimonial-content {
+        position: relative;
+        z-index: 1;
+        font-size: 1.25rem;
+        font-style: italic;
+    }
+
+    .testimonial-author {
+        margin-top: 1.5rem;
+        font-weight: 600;
+        color: var(--primary);
+        font-style: normal;
+    }
+
+    /* Category Tabs Styling */
+	.category-tabs {
+	  display: flex;
+	  flex-wrap: wrap;
+	  border-bottom: 1px solid var(--light-gray);
+	  margin-bottom: 30px;
+	  gap: 4px;
+	}
+
+	.tab-button {
+	  padding: 12px 24px;
+	  background-color: var(--light);
+	  border: 1px solid var(--light-gray);
+	  border-bottom: none;
+	  border-radius: 8px 8px 0 0;
+	  cursor: pointer;
+	  font-weight: 600;
+	  font-size: 1.1rem;
+	  transition: all 0.3s ease;
+	  position: relative;
+	  top: 1px;
+	  color: var(--gray);
+	}
+
+	.tab-button.active {
+	  color: var(--primary);
+	  background-color: white;
+	  border-bottom: 3px solid var(--primary);
+	  z-index: 1;
+	}
+
+	.tab-button:hover:not(.active) {
+	  background-color: #e9eff7;
+	}
+
+	/* App Content Wrapper */
+	.app-content-wrapper {
+	  position: relative;
+	}
+
+	.category-content {
+	  display: none;
+	  flex-wrap: wrap;
+	  gap: 25px;
+	}
+
+	.category-content.active {
+	  display: flex;
+	}
+
+	/* Sidebar and Main Content Layout */
+	.app-sidebar {
+	  width: 300px;
+	  flex-shrink: 0;
+	  background-color: var(--light);
+	  border-radius: 8px;
+	  padding: 15px;
+	  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+	}
+
+	.app-details {
+	  flex: 1;
+	  min-width: 300px;
+	  background-color: white;
+	  border-radius: 8px;
+	  padding: 25px;
+	  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+	}
+
+	/* Industry Accordion Styling */
+	.industry-accordion {
+	  display: flex;
+	  flex-direction: column;
+	  gap: 5px;
+	}
+
+	.industry-button {
+	  background-color: white;
+	  color: var(--dark);
+	  cursor: pointer;
+	  padding: 15px;
+	  width: 100%;
+	  text-align: left;
+	  border: 1px solid var(--light-gray);
+	  outline: none;
+	  font-size: 1rem;
+	  font-weight: 500;
+	  transition: 0.3s;
+	  border-radius: 6px;
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
+	}
+
+	.industry-button:after {
+	  content: '\002B';
+	  color: var(--gray);
+	  font-weight: 700;
+	  float: right;
+	  margin-left: 5px;
+	  font-size: 1.2rem;
+	}
+
+	.industry-button.active:after {
+	  content: "\2212";
+	}
+
+	.industry-button:hover {
+	  background-color: #f8fafc;
+	}
+
+	.industry-button.active {
+	  background-color: var(--primary);
+	  color: white;
+	  border-color: var(--primary);
+	}
+
+	.industry-button.active:after {
+	  color: white;
+	}
+
+	.industry-panel {
+	  max-height: 0;
+	  overflow: hidden;
+	  transition: max-height 0.2s ease-out;
+	  background-color: var(--light);
+	  border-radius: 0 0 6px 6px;
+	}
+
+	.industry-panel.active {
+	  max-height: 500px; /* Will be adjusted by JS */
+	}
+
+	/* App Item List */
+	.app-list {
+	  padding: 10px 5px;
+	}
+
+	.app-item {
+	  padding: 12px 15px;
+	  cursor: pointer;
+	  transition: all 0.2s ease;
+	  border-radius: 4px;
+	  margin-bottom: 3px;
+	  font-size: 0.95rem;
+	}
+
+	.app-item:hover {
+	  background-color: rgba(37, 99, 235, 0.1);
+	}
+
+	.app-item.active {
+	  background-color: var(--primary);
+	  color: white;
+	  font-weight: 500;
+	}
+
+	/* App Detail Content */
+	.app-detail-content {
+	  display: none;
+	}
+
+	.app-detail-content.active {
+	  display: block;
+	}
+
+	.app-detail-content h3 {
+	  color: var(--primary);
+	  margin-bottom: 15px;
+	  font-size: 1.8rem;
+	  padding-bottom: 10px;
+	  border-bottom: 1px solid var(--light-gray);
+	}
+
+	.app-description {
+	  margin-bottom: 25px;
+	}
+
+	.app-description p {
+	  font-size: 1.1rem;
+	  line-height: 1.6;
+	  color: var(--gray);
+	}
+
+	.app-features h4 {
+	  font-size: 1.2rem;
+	  margin-bottom: 15px;
+	  color: var(--dark);
+	}
+
+	.app-features ul {
+	  margin-left: 20px;
+	}
+
+	.app-features li {
+	  margin-bottom: 10px;
+	  position: relative;
+	  line-height: 1.5;
+	}
+
+	/* Responsive Adjustments */
+	@media (max-width: 992px) {
+	  .category-content.active {
+	    flex-direction: column;
+	  }
+
+	  .app-sidebar {
+	    width: 100%;
+	  }
+
+	  .app-details {
+	    width: 100%;
+	  }
+	}
+
+	@media (max-width: 768px) {
+	  .tab-button {
+	    padding: 10px 15px;
+	    font-size: 0.95rem;
+	  }
+
+	  .industry-button {
+	    padding: 12px;
+	    font-size: 0.95rem;
+	  }
+
+	  .app-detail-content h3 {
+	    font-size: 1.5rem;
+	  }
+}
+
+    /* Vision Section */
+    .vision {
+        background-color: white;
+        position: relative;
+    }
+
+    .vision h2 {
+        text-align: center;
+    }
+
+    .vision-cards {
+        display: flex;
+        gap: 30px;
+        margin: 40px 0;
+        flex-wrap: wrap;
+    }
+
+    .vision-card {
+        flex: 1;
+        min-width: 300px;
+        background-color: var(--light);
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid var(--light-gray);
+    }
+
+    .vision-card h3 {
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+        background-color: var(--primary);
+        color: white;
+        font-size: 1.5rem;
+    }
+
+    .vision-card-content {
+        padding: 30px;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+    }
+
+    .vision-card-content p {
+        font-size: 1.25rem;
+        line-height: 1.6;
+        font-weight: 300;
+        margin: 0;
+        font-style: italic;
+    }
+
+    .mahat-vision h3 {
+        background-color: var(--secondary);
+    }
+
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin: 30px 0;
+    }
+
+    .benefit-card {
+        background-color: var(--light);
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        border: 1px solid var(--light-gray);
+    }
+
+    .benefit-card h3 {
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+    }
+
+    .benefit-card h3 span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: var(--primary);
+        color: white;
+        border-radius: 50%;
+        margin-right: 15px;
+        font-size: 1.25rem;
+    }
+
+    .benefit-card ul {
+        margin-bottom: 0;
+    }
+
+    .benefit-card li {
+        margin-bottom: 12px;
+        position: relative;
+        padding-left: 5px;
+    }
+
+    .benefit-card li:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Next Steps Section */
+    .next-steps {
+        background-color: var(--light);
+        position: relative;
+        text-align: center;
+    }
+
+    .next-steps p {
+        text-align: center;
+    }
+
+    .steps-timeline {
+        position: relative;
+        margin: 3rem 0;
+        padding-left: 50px;
+        text-align: left;
+    }
+
+    .steps-timeline::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 15px;
+        width: 4px;
+        height: 100%;
+        background-color: var(--light-gray);
+        border-radius: 2px;
+    }
+
+    .timeline-item {
+        position: relative;
+        padding-bottom: 30px;
+    }
+
+    .timeline-item:last-child {
+        padding-bottom: 0;
+    }
+
+    .timeline-dot {
+        position: absolute;
+        top: 5px;
+        left: -50px;
+        width: 30px;
+        height: 30px;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        border-radius: 50%;
+        z-index: 1;
+        box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.1);
+    }
+
+    .timeline-content h3 {
+        margin: 0 0 1rem;
+        color: var(--primary);
+    }
+
+    .timeline-content p {
+        color: var(--gray);
+        text-align: left;
+    }
+
+    /* Contact Section */
+    .contact-section {
+        background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        color: white;
+        padding: 60px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .contact-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0MCIgaGVpZ2h0PSI0MDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMCAwbDEyMDAgNDAwSDB6IiBmaWxsPSIjMWUzYThhIiBmaWxsLW9wYWNpdHk9Ii4yIi8+PGNpcmNsZSBmaWxsPSIjZGJlYWZlIiBmaWxsLW9wYWNpdHk9Ii4yIiBjeD0iMTAwIiBjeT0iMzAwIiByPSIxMDAiLz48Y2lyY2xlIGZpbGw9IiNiYWU2ZmQiIGZpbGwtb3BhY2l0eT0iLjIiIGN4PSIxMTAwIiBjeT0iMTAwIiByPSIxNTAiLz48L2c+PC9zdmc+');
+        background-size: cover;
+        opacity: 0.3;
+        z-index: 0;
+    }
+
+    .contact-section .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .contact-section h2 {
+        color: white;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .contact-section h2::after {
+        background: linear-gradient(90deg, var(--secondary), white);
+    }
+
+    .contact-info-centered {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+        padding: 40px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .info-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .info-item i {
+        font-size: 1.5rem;
+        margin-right: 15px;
+        color: var(--secondary-light);
+    }
+
+    .info-item p {
+        margin: 0;
+        font-size: 1.1rem;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+        }
+
+        .hero {
+            padding: 80px 0 70px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        section {
+            padding: 40px 0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+        }
+
+        .hero-buttons {
+            flex-direction: column;
+        }
+
+        .btn-secondary {
+            margin-left: 0;
+            margin-top: 10px;
+        }
+
+        .pop-steps::before {
+            display: none;
+        }
+
+        .step {
+            padding: 0;
+        }
+
+        .vision-cards {
+            flex-direction: column;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.3rem;
+        }
+
+        .contact-info-centered {
+            padding: 25px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        h1 {
+            font-size: 2rem;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+        }
+
+        .blockquote {
+            font-size: 1.2rem;
+            padding: 20px;
+        }
+
+        .testimonial {
+            padding: 30px 20px;
+        }
+
+        .testimonial::before {
+            font-size: 5rem;
+        }
+
+        .testimonial-content {
+            font-size: 1.1rem;
+        }
+    }
+    </style>
+
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Accelerate Portfolio Growth
+with Mahat App-Generator.</h1>
+                <p>Help your SMB investments digitally transform <br>with enterprise-grade applications 5X faster and <br>50% more cost-effective than traditional development.</p>
+               </div>
+        </div>
+    </section>
+
+    <!-- Challenge Section -->
+    <section class="challenge" id="challenge">
+        <div class="container">
+            <h2>The Challenge</h2>
+
+            <div class="blockquote">
+                The Wealth Company has provided vital capital to high-potential SMBs in tier 2/3 cities. <strong><br>But in today's digital economy, <em>funding alone isn't enough</em>.</strong>
+            </div>
+
+            <div class="challenge-grid">
+                <div class="challenge-card">
+                    <div class="challenge-icon"><i class="fas fa-desktop"></i></div>
+                    <h3>Outdated Legacy Systems</h3>
+                    <p>Manual processes and disconnected systems creating costly inefficiencies and limiting growth potential.</p>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-icon"><i class="fas fa-coins"></i></div>
+                    <h3>Prohibitive <br>Development Costs</h3>
+                    <p>Custom enterprise applications ranging from ₹40-150 lakh, placing modern technology out of reach.</p>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-icon"><i class="fas fa-hourglass-half"></i></div>
+                    <h3>Extended Time-to-Market</h3>
+                    <p>Traditional development cycles of 3-6 months for MVPs causing missed market opportunities.</p>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-icon"><i class="fas fa-lock"></i></div>
+                    <h3>Technical Limitations</h3>
+                    <p>Conventional low-code solutions creating vendor lock-in and scalability constraints.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution" id="solution">
+        <div class="container">
+            <h2>The Solution: Mahat App Generator</h2>
+
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-building"></i></div>
+                    <h3>Revolutionary Architecture</h3>
+                    <p>Visually configure business logic, UX, and technical infrastructure through an intuitive interface.</p>
+                    <p>AI-augmented development generates 70-95% of application components automatically.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Unmatched Speed</h3>
+                    <p>Create MVPs in days instead of months. Deploy complete enterprise applications in weeks.</p>
+                    <p>Reduce development resources by up to 75% while maintaining quality.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-unlock"></i></div>
+                    <h3>Zero Technical Debt</h3>
+                    <p>Complete source code ownership without platform constraints or licensing limitations.</p>
+                    <p>Enterprise-grade security with unlimited scalability through modern architecture.</p>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table class="compact-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Mahat</th>
+                            <th>Traditional Development</th>
+                            <th>Low-Code</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>MVP Creation</td>
+                            <td class="highlight">2-5 Days</td>
+                            <td>8-12 Weeks</td>
+                            <td>3-6 Weeks</td>
+                        </tr>
+                        <tr>
+                            <td>Full Application</td>
+                            <td class="highlight">2-4 Weeks</td>
+                            <td>6-9 Months</td>
+                            <td>3-5 Months</td>
+                        </tr>
+                        <tr>
+                            <td>Cost Efficiency</td>
+                            <td class="highlight">Up to 50% Savings</td>
+                            <td>Baseline</td>
+                            <td>10-20% Savings</td>
+                        </tr>
+                        <tr>
+                            <td>Technical Resources</td>
+                            <td class="highlight">1-2 Team Members</td>
+                            <td>5-8 Specialists</td>
+                            <td>3-4 Team Members</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- PoP Section -->
+    <section class="pop" id="pop">
+        <div class="container">
+            <h2>Proof of Platform (PoP): See Results Before You Invest</h2>
+            <p>Mahat's innovative PoP program enables SMBs to validate technology solutions quickly and with minimal risk:</p>
+
+            <div class="pop-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Build Functional MVPs</h3>
+                    <p>Create working applications addressing critical business needs within hours, not months.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Test With Real Users</h3>
+                    <p>Validate workflows, interfaces, and business logic with actual stakeholders before full investment.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Calculate Precise ROI</h3>
+                    <p>Quantify development cost savings and projected operational efficiencies through comprehensive analytics.</p>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+            <header>
+			        <h1>Applications Mahat App-Generator can help create:</h1>
+			    </header>
+
+			    <div class="tabs-container">
+			        <div class="tabs">
+			            <button class="tab-button active" data-tab="twc">For The Wealth Company</button>
+			            <button class="tab-button" data-tab="smb">For Tier I and II SMBs</button>
+			        </div>
+
+			        <!-- The Wealth Company Tab Content -->
+			        <div class="tab-content active" id="twc-content">
+			            <!-- Category Tabs -->
+			            <div class="app-categories">
+			                <div class="tabs">
+			                    <button class="tab-button active" data-category="saas">SaaS Applications</button>
+			                    <button class="tab-button" data-category="core">Core Systems</button>
+			                    <button class="tab-button" data-category="experience">Experience Enhancers</button>
+			                    <button class="tab-button" data-category="productivity">Productivity Enablers</button>
+			                </div>
+
+			                <!-- App Selection and Details Display -->
+			                <div class="app-content">
+			                    <!-- App List for SaaS Applications (Default View) -->
+			                    <div class="app-list" id="saas-apps">
+			                        <div class="app-item active" data-app="regulatory-compliance">Regulatory Compliance Hub</div>
+			                        <div class="app-item" data-app="wealth-product">Wealth Product Orchestrator</div>
+			                        <div class="app-item" data-app="client-onboarding">Client Onboarding Accelerator</div>
+			                    </div>
+
+			                    <!-- App List for Core Systems (Initially Hidden) -->
+			                    <div class="app-list" id="core-apps" style="display: none;">
+			                        <div class="app-item" data-app="workflow-engine">Wealth Management Workflow Engine</div>
+			                        <div class="app-item" data-app="portfolio-lifecycle">Portfolio Lifecycle Manager</div>
+			                        <div class="app-item" data-app="family-office">Family Office System</div>
+			                    </div>
+
+			                    <!-- App List for Experience Enhancers (Initially Hidden) -->
+			                    <div class="app-list" id="experience-apps" style="display: none;">
+			                        <div class="app-item" data-app="advisor-client">Advisor-Client Collaboration Portal</div>
+			                        <div class="app-item" data-app="vendor-partner">Vendor/Partner Gateway</div>
+			                        <div class="app-item" data-app="esg-advisory">ESG Advisory Interface</div>
+			                    </div>
+
+			                    <!-- App List for Productivity Enablers (Initially Hidden) -->
+			                    <div class="app-list" id="productivity-apps" style="display: none;">
+			                        <div class="app-item" data-app="internal-process">Internal Process Digitalizer</div>
+			                        <div class="app-item" data-app="compliance-tracker">Compliance Tracker</div>
+			                        <div class="app-item" data-app="training-certification">Training & Certification Hub</div>
+			                    </div>
+
+			                    <!-- App Details Area -->
+			                    <div class="app-details">
+			                        <!-- Default content (Regulatory Compliance Hub) -->
+			                        <h3>Regulatory Compliance Hub</h3>
+			                        <p>Centralizes adherence to financial regulations for multi-client portfolios.</p>
+			                        <h4>Core Features:</h4>
+			                        <ul class="features-list">
+			                            <li><strong>Multi-tenant audit trails:</strong> Comprehensive tracking of all compliance-related activities</li>
+			                            <li><strong>Automated compliance workflows:</strong> Streamlined processes for regulatory requirements</li>
+			                            <li><strong>Document versioning:</strong> Track changes and maintain compliance documentation</li>
+			                        </ul>
+			                        <div class="tech-specs">
+			                            <div class="spec-box">
+			                                <h4>Technical Scope</h4>
+			                                <p><strong>Business Objects:</strong> 20-30</p>
+			                                <p><strong>Business Actions:</strong> 100-120</p>
+			                            </div>
+			                            <div class="spec-box">
+			                                <h4>Development Timeline</h4>
+			                                <p><strong>MVP Creation:</strong> 5-7 days</p>
+			                                <p><strong>Full Development:</strong> 3-4 weeks</p>
+			                            </div>
+			                            <div class="spec-box">
+			                                <h4>Potential ROI</h4>
+			                                <p><strong>Time Savings:</strong> 60%</p>
+			                                <p><strong>Cost Reduction:</strong> 45%</p>
+			                            </div>
+			                        </div>
+			                    </div>
+			                </div>
+			            </div>
+			        </div>
+
+			        <!-- SMB Tab Content -->
+			        <div class="tab-content" id="smb-content">
+			            <h2>Sample List of Application You Can Develop <br>With Mahat App-Generator Across Industries.</h2>
+			            <table class="industry-table">
+			                <tr>
+			                    <th>Industry</th>
+			                    <th>SaaS Applications</th>
+			                    <th>Core Systems</th>
+			                    <th>Experience Enhancers</th>
+			                    <th>Productivity Enablers</th>
+			                </tr>
+			                <tr>
+			                    <td class="industry-column">Construction</td>
+			                    <td>
+			                        <ol>
+			                            <li>Project Mgmt</li>
+			                            <li>Procurement</li>
+			                            <li>Budget Mgmt</li>
+			                            <li>Subcontractor Mgmt</li>
+			                            <li>Construction Safety</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Project Mgmt System</li>
+			                            <li>Job Costing Mgmt System</li>
+			                            <li>Site Mgmt System</li>
+			                            <li>Equipment Mgmt System</li>
+			                            <li>Quality Control System</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Client Project Portal</li>
+			                            <li>Subcontractor Collab Platform</li>
+			                            <li>Equipment Mgmt Interface</li>
+			                            <li>Material Supplier Portal</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Daily Progress Tracker</li>
+			                            <li>Safety Incident Recorder</li>
+			                            <li>Equipment Allocation Planner</li>
+			                            <li>Material Request Approval</li>
+			                            <li>Site Visit Documentation</li>
+			                        </ol>
+			                    </td>
+			                </tr>
+			                <tr>
+			                    <td class="industry-column">Healthcare</td>
+			                    <td>
+			                        <ol>
+			                            <li>Electronic Health Record</li>
+			                            <li>Telemedicine Platform</li>
+			                            <li>Medical Supply Chain Mgmt</li>
+			                            <li>Healthcare Staffing</li>
+			                            <li>Patient Engagement</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Hospital Asset Mgmt</li>
+			                            <li>Pharmacy Mgmt</li>
+			                            <li>Patient Admission System</li>
+			                            <li>Medical Billing System</li>
+			                            <li>Lab Mgmt System</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Patient Portal</li>
+			                            <li>Referring Physician Platform</li>
+			                            <li>Insurance Provider Interface</li>
+			                            <li>Med Equipment Supplier Portal</li>
+			                            <li>Clinical Trial Portal</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Physician Scheduling Tool</li>
+			                            <li>Equipment Maint Tracker</li>
+			                            <li>Med Inventory Req System</li>
+			                            <li>On-call Staff Rotation Mgr</li>
+			                            <li>Patient Transfer Approval</li>
+			                        </ol>
+			                    </td>
+			                </tr>
+			                <tr>
+			                    <td class="industry-column">Manufacturing</td>
+			                    <td>
+			                        <ol>
+			                            <li>Production Execution</li>
+			                            <li>Vendor Mgmt</li>
+			                            <li>Product Lifecycle Mgmt</li>
+			                            <li>Quality Mgmt</li>
+			                            <li>Manufacturing Analytics</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Production Mgmt System</li>
+			                            <li>Procurement Mgmt System</li>
+			                            <li>Inventory Control System</li>
+			                            <li>Quality Assurance System</li>
+			                            <li>Equipment Maint System</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Supplier Network</li>
+			                            <li>Distributor Ordering Platform</li>
+			                            <li>Customer-Manufacturer Interface</li>
+			                            <li>Product Component Spec Portal</li>
+			                            <li>Recall Mgmt Tool</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Production Schedule Tracker</li>
+			                            <li>Material Requisition Approval</li>
+			                            <li>Machine Downtime Calculator</li>
+			                            <li>Safety Incident Reporter</li>
+			                            <li>Quality Issue Tracking Tool</li>
+			                        </ol>
+			                    </td>
+			                </tr>
+			                <tr>
+			                    <td class="industry-column">Retail</td>
+			                    <td>
+			                        <ol>
+			                            <li>Vendor Mgmt</li>
+			                            <li>Distributor Mgmt</li>
+			                            <li>Wholesale Ordering</li>
+			                            <li>Retail Analytics</li>
+			                            <li>Inventory Mgmt</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Point of Sale (POS)</li>
+			                            <li>Inventory Mgmt</li>
+			                            <li>Customer Relationship Mgmt</li>
+			                            <li>Order Mgmt</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Customer Loyalty Portal</li>
+			                            <li>Vendor Catalog Mgmt</li>
+			                            <li>Franchise Mgmt Portal</li>
+			                            <li>Click & Collect Customer Mgmt</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Visual Merchandising Planner</li>
+			                            <li>Store Audit Scheduler</li>
+			                            <li>Staff Schedule Manager</li>
+			                            <li>Promotion Approval Workflow</li>
+			                        </ol>
+			                    </td>
+			                </tr>
+			                <tr>
+			                    <td class="industry-column">Financial Services</td>
+			                    <td>
+			                        <ol>
+			                            <li>Digital Banking Platform</li>
+			                            <li>Insurance Policy Mgmt</li>
+			                            <li>Investment Mgmt</li>
+			                            <li>Payment Processing</li>
+			                            <li>Lending</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Loan Origination System</li>
+			                            <li>Customer Onboarding System</li>
+			                            <li>Claim Mgmt System</li>
+			                            <li>Risk Assessment System</li>
+			                            <li>Asset Mgmt System</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Client Investment Portal</li>
+			                            <li>Insurance Agent Platform</li>
+			                            <li>Loan Application Interface</li>
+			                            <li>Broker-Dealer Portal</li>
+			                            <li>Financial Advisor Collab Tool</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Credit Limit Approval Workflow</li>
+			                            <li>Audit Documentation Tool</li>
+			                            <li>Document Verification Tracker</li>
+			                            <li>Regulatory Filing Checklist</li>
+			                            <li>Client Document Org System</li>
+			                        </ol>
+			                    </td>
+			                </tr>
+			                <tr>
+			                    <td class="industry-column">Education</td>
+			                    <td>
+			                        <ol>
+			                            <li>School Admin</li>
+			                            <li>Talent and Certification</li>
+			                            <li>Learning Mgmt</li>
+			                            <li>Course Information</li>
+			                            <li>Educational Content Mgmt</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Student Info Mgmt</li>
+			                            <li>Curriculum Mgmt</li>
+			                            <li>Academic Performance Mgmt</li>
+			                            <li>Library Mgmt System</li>
+			                            <li>Faculty Scheduling System</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Parent Communication Portal</li>
+			                            <li>Student Assignment Platform</li>
+			                            <li>Alumni Engagement Interface</li>
+			                            <li>Internship Provider Portal</li>
+			                            <li>Educational Partner Collab Tool</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Field Trip Approval Workflow</li>
+			                            <li>Classroom Maint Request</li>
+			                            <li>Substitute Teacher Scheduler</li>
+			                            <li>Teaching Supply Ordering Tool</li>
+			                            <li>Transcript Request Tracking</li>
+			                        </ol>
+			                    </td>
+			                </tr>
+			                <tr>
+			                    <td class="industry-column">Automotive</td>
+			                    <td>
+			                        <ol>
+			                            <li>Dealership Network Mgmt</li>
+			                            <li>Automotive Inventory Supply</li>
+			                            <li>Vehicle Service Mgmt</li>
+			                            <li>Parts Distribution</li>
+			                            <li>Automotive Rental</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Vehicle Sales Mgmt</li>
+			                            <li>Dealership Mgmt</li>
+			                            <li>Service and Maintenance</li>
+			                            <li>Parts Inventory</li>
+			                            <li>Vehicle Lifecycle Tracking</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Customer Service Portal</li>
+			                            <li>Dealer-Manufacturer Interface</li>
+			                            <li>Vehicle Parts Supplier Ordering</li>
+			                            <li>Vehicle Customization Portal</li>
+			                            <li>Test Drive Scheduling Portal</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Service Bay Allocation Tool</li>
+			                            <li>Warranty Checklist</li>
+			                            <li>Warranty Claim Processor</li>
+			                            <li>Demo Vehicle Tracker</li>
+			                            <li>Sales Commission Calculator</li>
+			                        </ol>
+			                    </td>
+			                </tr>
+			                <tr>
+			                    <td class="industry-column">Transportation & Logistics</td>
+			                    <td>
+			                        <ol>
+			                            <li>Fleet Mgmt</li>
+			                            <li>Logistics Optimization</li>
+			                            <li>Carrier Mgmt</li>
+			                            <li>Freight Brokerage</li>
+			                            <li>Load Delivery</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Fleet Mgmt System</li>
+			                            <li>Route Planning & Optimization</li>
+			                            <li>Cargo Tracking System</li>
+			                            <li>Warehouse Mgmt System</li>
+			                            <li>Driver Mgmt System</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Shipper Portal</li>
+			                            <li>Carrier Collaboration Platform</li>
+			                            <li>Customer Tracking Interface</li>
+			                            <li>Supplier Delivery Scheduling</li>
+			                            <li>Customs Broker Portal</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Vehicle Inspection Scheduler</li>
+			                            <li>Fuel Expense Tracker</li>
+			                            <li>Delivery Exception Logger</li>
+			                            <li>Driver Hour Compliance Tracker</li>
+			                            <li>Warehouse Transfer Approval</li>
+			                        </ol>
+			                    </td>
+			                </tr>
+			                <tr>
+			                    <td class="industry-column">Real Estate</td>
+			                    <td>
+			                        <ol>
+			                            <li>Property Mgmt</li>
+			                            <li>Real Estate Brokerage</li>
+			                            <li>Facility Mgmt</li>
+			                            <li>Lease Admin</li>
+			                            <li>Real Estate Transaction</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Property Listing Mgmt</li>
+			                            <li>Client Mgmt</li>
+			                            <li>Transaction Processing</li>
+			                            <li>Property Maint System</li>
+			                            <li>Commission Mgmt System</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Tenant Portal</li>
+			                            <li>Property Viewing Scheduler</li>
+			                            <li>Vendor Mgmt Interface</li>
+			                            <li>Investor Reporting Platform</li>
+			                            <li>Agent Collaboration Tool</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Property Inspection Tracker</li>
+			                            <li>Showing Maint Request</li>
+			                            <li>Renter Fee Calculator</li>
+			                            <li>Lease Renewal Workflow</li>
+			                            <li>Utility Bill Processing Tool</li>
+			                        </ol>
+			                    </td>
+			                </tr>
+			                <tr>
+			                    <td class="industry-column">Professional Services</td>
+			                    <td>
+			                        <ol>
+			                            <li>Prof Service Automation</li>
+			                            <li>Client Mgmt</li>
+			                            <li>Knowledge Mgmt</li>
+			                            <li>Time and Billing</li>
+			                            <li>Resource Planning</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Client Engagement System</li>
+			                            <li>Project Mgmt</li>
+			                            <li>Resource Allocation</li>
+			                            <li>Time Tracking & Billing</li>
+			                            <li>Document Mgmt System</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Client Portal</li>
+			                            <li>Expertise Directory</li>
+			                            <li>Consultant Collab Platform</li>
+			                            <li>Proposal Development</li>
+			                            <li>Client Onboarding System</li>
+			                        </ol>
+			                    </td>
+			                    <td>
+			                        <ol>
+			                            <li>Engagement Scope Tracker</li>
+			                            <li>Billable Hours Review Tool</li>
+			                            <li>Expert Resource Request</li>
+			                            <li>Client Satisfaction Collector</li>
+			                            <li>Reference Letter Generator</li>
+			                        </ol>
+			                    </td>
+			                </tr>
+			            </table>
+			        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="testimonial">
+                <div class="testimonial-content">
+                    <p>"As a leading office furniture dealer, we manage complex inventory, stores, and customer operations. <br>Mahat's PoP workshop delivered more functional business logic in 4 hours <br>than our traditional development team accomplished in 3 months."</p>
+                    <p class="testimonial-author">— U.Kandavel, CEO of UKAN Furn, exclusive dealer for FEATHERLITE</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="vision" id="vision">
+        <div class="container">
+            <h2>Our Shared Vision:</h2>
+
+            <div class="vision-cards">
+                <div class="vision-card twc-vision">
+                    <h3>The Wealth Company</h3>
+                    <div class="vision-card-content">
+                        <p>"To be the leading wealth management firm in India, delivering unparalleled value and transforming financial futures through innovation, expertise, and a client-first approach."</p>
+                    </div>
+                </div>
+
+                <div class="vision-card mahat-vision">
+                    <h3>Mahat</h3>
+                    <div class="vision-card-content">
+                        <p>"To empower ordinary people to create an extraordinary variety of applications and multiple forms of capital through that."</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Key Benefits:</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                 <h3><span>1</span> For TWC Portfolio Companies</h3>
+                    <ul>
+                        <li><strong>Accelerate digital maturity</strong> by compressing years of technological evolution into months</li>
+                        <li><strong>Maximize investment returns</strong> through enhanced operational efficiency and market expansion</li>
+                        <li><strong>Enter new markets</strong> with competitive digital capabilities previously out of reach</li>
+                    </ul>
+                </div>
+
+                <div class="benefit-card">
+                    <h3><span>2</span> For TWC as Strategic Investor</h3>
+                    <ul>
+                        <li><strong>Differentiated value proposition</strong> offering technological acceleration alongside financial capital</li>
+                        <li><strong>Enhanced due diligence</strong> through technology assessment framework</li>
+                        <li><strong>Portfolio synergies</strong> creating interoperable digital ecosystems across complementary companies</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Steps Section -->
+    <section class="next-steps" id="next-steps">
+        <div class="container">
+            <h2>The Next Step: Digital Transformation Partnership</h2>
+
+            <p>Together, we can transform tier 2/3 businesses into global competitors through this strategic partnership roadmap:</p>
+
+            <div class="steps-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Executive Alignment Workshop</h3>
+                        <p>Establish strategic framework and partnership objectives through collaborative planning sessions.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>PoP Sessions</h3>
+                        <p>Conduct hands-on demonstration workshops with 10-15 portfolio companies to identify high-impact opportunities.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Pilot Program</h3>
+                        <p>Develop and deploy transformative applications for 3 selected SMBs, creating measurable success stories.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>"Digital Leap" Program Launch</h3>
+                        <p>Scale the initiative across TWC's portfolio with a comprehensive SMB transformation framework.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2>Contact Us Now</h2>
+
+            <div class="contact-info-centered">
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <p>+91 70102 09758</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>ragu@mahat.ai</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Main tab switching
+            const mainTabButtons = document.querySelectorAll('.tabs-container > .tabs .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active button
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Show corresponding content
+                    const tabId = this.getAttribute('data-tab');
+                    mainTabContents.forEach(content => content.classList.remove('active'));
+                    document.getElementById(tabId + '-content').classList.add('active');
+                });
+            });
+
+            // Category tab switching for TWC tab
+            const categoryTabButtons = document.querySelectorAll('.app-categories .tabs .tab-button');
+            const appLists = {
+                'saas': document.getElementById('saas-apps'),
+                'core': document.getElementById('core-apps'),
+                'experience': document.getElementById('experience-apps'),
+                'productivity': document.getElementById('productivity-apps')
+            };
+
+            categoryTabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active button
+                    categoryTabButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Show corresponding app list
+                    const category = this.getAttribute('data-category');
+                    for (const key in appLists) {
+                        appLists[key].style.display = 'none';
+                    }
+                    appLists[category].style.display = 'block';
+
+                    // Select first app in the list
+                    const firstApp = appLists[category].querySelector('.app-item');
+                    if (firstApp) {
+                        // Clear active class from all items
+                        appLists[category].querySelectorAll('.app-item').forEach(item => {
+                            item.classList.remove('active');
+                        });
+
+                        // Set first item as active
+                        firstApp.classList.add('active');
+
+                        // Update app details
+                        updateAppDetails(firstApp.getAttribute('data-app'));
+                    }
+                });
+            });
+
+            // App details data for TWC applications
+            const appDetails = {
+                // SaaS Applications
+                'regulatory-compliance': {
+                    name: 'Regulatory Compliance Hub',
+                    description: 'Centralizes adherence to financial regulations for multi-client portfolios.',
+                    features: [
+                        '<strong>Multi-tenant audit trails:</strong> Comprehensive tracking of all compliance-related activities',
+                        '<strong>Automated compliance workflows:</strong> Streamlined processes for regulatory requirements',
+                        '<strong>Document versioning:</strong> Track changes and maintain compliance documentation'
+                    ],
+                    businessObjects: '20-30',
+                    businessActions: '100-120',
+                    mvpTime: '5-7 days',
+                    fullTime: '3-4 weeks',
+                    timeSavings: '60%',
+                    costReduction: '45%'
+                },
+                'wealth-product': {
+                    name: 'Wealth Product Orchestrator',
+                    description: 'Streamlines investment product lifecycle management for advisors.',
+                    features: [
+                        '<strong>Product screening tools:</strong> Evaluate and filter investment products based on criteria',
+                        '<strong>ESG/SDG alignment tracking:</strong> Monitor environmental, social, and governance factors',
+                        '<strong>White-label branding:</strong> Customize the platform appearance for different advisor firms'
+                    ],
+                    businessObjects: '25-35',
+                    businessActions: '110-140',
+                    mvpTime: '6-8 days',
+                    fullTime: '3-4 weeks',
+                    timeSavings: '65%',
+                    costReduction: '50%'
+                },
+                'client-onboarding': {
+                    name: 'Client Onboarding Accelerator',
+                    description: 'Automates KYC and due diligence processes for high-net-worth clients.',
+                    features: [
+                        '<strong>eSignature integration:</strong> Streamline document signing process',
+                        '<strong>Role-based access:</strong> Control information visibility based on user roles',
+                        '<strong>Integration with financial databases:</strong> Connect with external systems for verification'
+                    ],
+                    businessObjects: '18-28',
+                    businessActions: '90-120',
+                    mvpTime: '4-6 days',
+                    fullTime: '2-3 weeks',
+                    timeSavings: '70%',
+                    costReduction: '55%'
+                },
+
+                // Core Systems
+                'workflow-engine': {
+                    name: 'Wealth Management Workflow Engine',
+                    description: 'Unifies cross-departmental workflows across legal, finance, and advisory teams.',
+                    features: [
+                        '<strong>Automated task routing:</strong> Direct tasks to appropriate team members',
+                        '<strong>Performance dashboards:</strong> Monitor workflow efficiency and bottlenecks',
+                        '<strong>Governmental portal integration:</strong> Connect with regulatory systems'
+                    ],
+                    businessObjects: '30-40',
+                    businessActions: '150-180',
+                    mvpTime: '7-9 days',
+                    fullTime: '4-5 weeks',
+                    timeSavings: '55%',
+                    costReduction: '40%'
+                },
+                'portfolio-lifecycle': {
+                    name: 'Portfolio Lifecycle Manager',
+                    description: 'Tracks client portfolios from inception to maturity with comprehensive oversight.',
+                    features: [
+                        '<strong>Tax-efficient strategy alerts:</strong> Notifications for tax optimization opportunities',
+                        '<strong>Rebalancing triggers:</strong> Automated alerts for portfolio rebalancing',
+                        '<strong>Custodial data sync:</strong> Integration with custodian systems'
+                    ],
+                    businessObjects: '25-35',
+                    businessActions: '130-160',
+                    mvpTime: '6-8 days',
+                    fullTime: '3-4 weeks',
+                    timeSavings: '60%',
+                    costReduction: '45%'
+                },
+                'family-office': {
+                    name: 'Family Office System',
+                    description: 'Holistic wealth management for family-owned businesses with multi-generational planning.',
+                    features: [
+                        '<strong>Multi-generational planning:</strong> Tools for long-term wealth transfer strategies',
+                        '<strong>Estate documentation:</strong> Comprehensive estate planning document management',
+                        '<strong>NRI investment support:</strong> Specialized tools for non-resident investments'
+                    ],
+                    businessObjects: '35-45',
+                    businessActions: '170-200',
+                    mvpTime: '8-10 days',
+                    fullTime: '4-6 weeks',
+                    timeSavings: '50%',
+                    costReduction: '40%'
+                },
+
+                // Experience Enhancers
+                'advisor-client': {
+                    name: 'Advisor-Client Collaboration Portal',
+                    description: 'Secure platform for advisors, clients, and external stakeholders to communicate and share information.',
+                    features: [
+                        '<strong>Secure messaging:</strong> Encrypted communication between parties',
+                        '<strong>Shared document vault:</strong> Centralized repository for important documents',
+                        '<strong>eSignature workflows:</strong> Integrated signing for approvals and agreements'
+                    ],
+                    businessObjects: '20-30',
+                    businessActions: '100-130',
+                    mvpTime: '5-7 days',
+                    fullTime: '3-4 weeks',
+                    timeSavings: '65%',
+                    costReduction: '50%'
+                },
+                'vendor-partner': {
+                    name: 'Vendor/Partner Gateway',
+                    description: 'Streamlines interactions with external vendors including legal teams, custodians, and service providers.',
+                    features: [
+                        '<strong>Quote management:</strong> Track and compare vendor quotes',
+                        '<strong>Contract tracking:</strong> Monitor agreements and renewal dates',
+                        '<strong>Compliance documentation:</strong> Ensure vendor adherence to regulations'
+                    ],
+                    businessObjects: '15-25',
+                    businessActions: '80-110',
+                    mvpTime: '4-6 days',
+                    fullTime: '2-3 weeks',
+                    timeSavings: '55%',
+                    costReduction: '45%'
+                },
+                'esg-advisory': {
+                    name: 'ESG Advisory Interface',
+                    description: 'Facilitates ESG-focused client-advisor interactions with sustainability insights.',
+                    features: [
+                        '<strong>Morningstar ESG integration:</strong> Connect with leading ESG data provider',
+                        '<strong>SDG impact reports:</strong> Generate reports aligned with Sustainable Development Goals',
+                        '<strong>Client preference filters:</strong> Match investments to client ESG priorities'
+                    ],
+                    businessObjects: '18-28',
+                    businessActions: '90-120',
+                    mvpTime: '5-7 days',
+                    fullTime: '3-4 weeks',
+                    timeSavings: '60%',
+                    costReduction: '45%'
+                },
+
+                // Productivity Enablers
+                'internal-process': {
+                    name: 'Internal Process Digitalizer',
+                    description: 'Replaces manual workflows for expense approvals, audits, and internal processes.',
+                    features: [
+                        '<strong>Digital checklists:</strong> Convert paper processes to digital workflows',
+                        '<strong>Audit-ready reporting:</strong> Generate compliance-ready documentation',
+                        '<strong>Approval chains:</strong> Configure multi-level approval processes'
+                    ],
+                    businessObjects: '15-25',
+                    businessActions: '70-100',
+                    mvpTime: '4-6 days',
+                    fullTime: '2-3 weeks',
+                    timeSavings: '70%',
+                    costReduction: '55%'
+                },
+                'compliance-tracker': {
+                    name: 'Compliance Tracker',
+                    description: 'Tracks regulatory filings and deadlines for financial compliance requirements.',
+                    features: [
+                        '<strong>SEBI/Govt. regulation updates:</strong> Stay current with changing regulations',
+                        '<strong>Task reminders:</strong> Automated notifications for upcoming deadlines',
+                        '<strong>Team accountability logs:</strong> Track completion of compliance tasks'
+                    ],
+                    businessObjects: '12-22',
+                    businessActions: '60-90',
+                    mvpTime: '3-5 days',
+                    fullTime: '2-3 weeks',
+                    timeSavings: '65%',
+                    costReduction: '50%'
+                },
+                'training-certification': {
+                    name: 'Training & Certification Hub',
+                    description: 'Manages employee training for financial compliance and professional development.',
+                    features: [
+                        '<strong>Course modules:</strong> Structured learning paths for various roles',
+                        '<strong>Certification tracking:</strong> Monitor employee certification status',
+                        '<strong>HR system integration:</strong> Connect with human resources platforms'
+                    ],
+                    businessObjects: '15-25',
+                    businessActions: '75-105',
+                    mvpTime: '4-6 days',
+                    fullTime: '2-3 weeks',
+                    timeSavings: '60%',
+                    costReduction: '45%'
+                }
+            };
+
+            // App selection
+            document.querySelectorAll('.app-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    // Update active class
+                    this.parentElement.querySelectorAll('.app-item').forEach(appItem => {
+                        appItem.classList.remove('active');
+                    });
+                    this.classList.add('active');
+
+                    // Update app details
+                    updateAppDetails(this.getAttribute('data-app'));
+                });
+            });
+
+            // Function to update app details
+            function updateAppDetails(appId) {
+                const app = appDetails[appId];
+                const detailsArea = document.querySelector('.app-details');
+
+                if (app) {
+                    // Create features list HTML
+                    const featuresHtml = app.features.map(feature => `<li>${feature}</li>`).join('');
+
+                    // Update content
+                    detailsArea.innerHTML = `
+                        <h3>${app.name}</h3>
+                        <p>${app.description}</p>
+
+                        <h4>Core Features:</h4>
+                        <ul class="features-list">
+                            ${featuresHtml}
+                        </ul>
+
+                        <div class="tech-specs">
+                            <div class="spec-box">
+                                <h4>Technical Scope</h4>
+                                <p><strong>Business Objects:</strong> ${app.businessObjects}</p>
+                                <p><strong>Business Actions:</strong> ${app.businessActions}</p>
+                            </div>
+                            <div class="spec-box">
+                                <h4>Development Timeline</h4>
+                                <p><strong>MVP Creation:</strong> ${app.mvpTime}</p>
+                                <p><strong>Full Development:</strong> ${app.fullTime}</p>
+                            </div>
+                            <div class="spec-box">
+                                <h4>Potential ROI</h4>
+                                <p><strong>Time Savings:</strong> ${app.timeSavings}</p>
+                                <p><strong>Cost Reduction:</strong> ${app.costReduction}</p>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+
+            // Initialize with default app
+            updateAppDetails('regulatory-compliance');
+        });
+    </script>
+
+
+</body>
+</html>
