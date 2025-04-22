@@ -1,0 +1,1769 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sangeetha Mobiles - Digital Transformation with Mahat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        /* Modern Color Scheme */
+        :root {
+            --primary: #111827; /* Deep navy for premium feel */
+            --primary-dark: #0D1321;
+            --secondary: #E11D48; /* Vibrant accent color */
+            --secondary-dark: #BE123C;
+            --accent: #3B82F6; /* Blue for tech feel */
+            --light: #F9FAFB;
+            --dark: #1F2937;
+            --gray: #6B7280;
+            --light-gray: #E5E7EB;
+            --bg-gradient: linear-gradient(135deg, var(--primary) 0%, #1E3A8A 100%);
+            --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            --text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            margin-bottom: 6rem;
+            padding: 4rem 0;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            letter-spacing: -0.05em;
+        }
+
+        h2 {
+            font-size: 2.75rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            letter-spacing: -0.03em;
+            position: relative;
+        }
+
+        h2:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            margin: 1.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.75rem;
+            letter-spacing: -0.02em;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* Modern Navigation */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 0.8rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-logo img {
+            height: 40px;
+            margin-right: 12px;
+        }
+
+        .navbar-logo-text {
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .navbar-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-item {
+            margin: 0 1.25rem;
+        }
+
+        .navbar-link {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            transition: width 0.3s ease;
+        }
+
+        .navbar-link:hover {
+            color: var(--primary);
+        }
+
+        .navbar-link:hover::after {
+            width: 100%;
+        }
+
+        .navbar-cta {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(225, 29, 72, 0.3);
+        }
+
+        .navbar-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(225, 29, 72, 0.4);
+            color: white;
+        }
+
+        /* Hero Section - Premium Mobile Retailer */
+        .hero {
+            background: linear-gradient(rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.85)), url('https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            color: white;
+            padding: 12rem 0 8rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            opacity: 0.08;
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: var(--text-shadow);
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+            color: white;
+        }
+
+        .hero h2:after {
+            display: none;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+            color: white;
+            padding: 1.25rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(225, 29, 72, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s ease;
+            z-index: -1;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(225, 29, 72, 0.4);
+            color: white;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Floating Phone Mockups */
+        .phone-mockups {
+            position: relative;
+            height: 300px;
+            margin-top: 4rem;
+        }
+
+        .phone-mockup {
+            position: absolute;
+            width: 160px;
+            height: 320px;
+            border-radius: 28px;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            transition: all 0.5s ease;
+            z-index: 1;
+            border: 8px solid var(--primary);
+        }
+
+        .phone-mockup::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+            border-radius: 20px;
+        }
+
+        .phone-1 {
+            left: 50%;
+            top: 0;
+            transform: translateX(-200px) rotate(-15deg);
+            background-image: url('https://images.unsplash.com/photo-1598327105854-c8674faddf79?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .phone-2 {
+            left: 50%;
+            top: -20px;
+            transform: translateX(-50%) rotate(0deg);
+            background-image: url('https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');
+            animation: float 6s ease-in-out infinite 0.2s;
+            z-index: 2;
+        }
+
+        .phone-3 {
+            left: 50%;
+            top: 0;
+            transform: translateX(100px) rotate(15deg);
+            background-image: url('https://images.unsplash.com/photo-1556656793-08538906a9f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');
+            animation: float 6s ease-in-out infinite 0.4s;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Section Styling */
+        .section-container {
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            padding: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-container::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80') center/cover;
+            opacity: 0.03;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        /* Applications Section */
+        .app-categories {
+            position: relative;
+            z-index: 1;
+        }
+
+        .app-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Tab Design */
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid var(--light-gray);
+            margin-bottom: 2rem;
+            overflow-x: auto;
+            scrollbar-width: none;
+            justify-content: center;
+            position: relative;
+        }
+
+        .tabs::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.3;
+        }
+
+        .tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab-button {
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--gray);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            font-size: 1rem;
+            position: relative;
+        }
+
+        .tab-button.active {
+            color: var(--primary);
+            border-bottom-color: var(--secondary);
+        }
+
+        .tab-button.active::before {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            border-radius: 3px 3px 0 0;
+        }
+
+        .tab-button:hover:not(.active) {
+            color: var(--dark);
+        }
+
+        /* App Selection and Display Area */
+        .app-content {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .app-list {
+            width: 300px;
+            border-right: 1px solid var(--light-gray);
+            padding-right: 1.5rem;
+            max-height: 500px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent) var(--light);
+        }
+
+        .app-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .app-list::-webkit-scrollbar-track {
+            background: var(--light);
+            border-radius: 10px;
+        }
+
+        .app-list::-webkit-scrollbar-thumb {
+            background-color: var(--accent);
+            border-radius: 10px;
+        }
+
+        .app-item {
+            padding: 1rem 1.25rem;
+            margin-bottom: 0.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+            font-weight: 500;
+        }
+
+        .app-item:hover {
+            background-color: rgba(59, 130, 246, 0.05);
+            border-left-color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .app-item.active {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            border-left-color: var(--secondary);
+            box-shadow: 0 5px 15px rgba(17, 24, 39, 0.2);
+        }
+
+        .app-details {
+            flex: 1;
+            padding: 2rem;
+            border-radius: 12px;
+            background-color: var(--light);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--secondary);
+        }
+
+        .app-details:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .app-details h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+
+        .app-details h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            border-radius: 3px;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .features-list li {
+            padding-left: 2rem;
+            position: relative;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            color: var(--secondary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            background-color: rgba(225, 29, 72, 0.1);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .features-list li:hover {
+            transform: translateX(5px);
+        }
+
+        /* Benefits Section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            border-top: 4px solid transparent;
+            border-image: linear-gradient(to right, var(--secondary), var(--accent));
+            border-image-slice: 1;
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(225, 29, 72, 0.03) 0%, rgba(59, 130, 246, 0.03) 100%);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-card:hover::before {
+            opacity: 1;
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.1);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover h3 {
+            color: var(--primary-dark);
+        }
+
+        /* Roadmap Section */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: linear-gradient(to bottom, var(--secondary), var(--accent));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 10px;
+        }
+
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            transition: all 0.4s ease;
+        }
+
+        .timeline-container:hover {
+            transform: scale(1.03);
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12px;
+            background-color: white;
+            border: 4px solid var(--secondary);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 0 4px rgba(225, 29, 72, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-container:hover::after {
+            background-color: var(--secondary);
+            box-shadow: 0 0 0 8px rgba(225, 29, 72, 0.2);
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid var(--light-gray);
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+            transition: all 0.3s ease;
+        }
+
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid var(--light-gray);
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+            transition: all 0.3s ease;
+        }
+
+        .right::after {
+            left: -13px;
+        }
+
+        .phase-content {
+            padding: 2rem;
+            background-color: white;
+            position: relative;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-top: 4px solid transparent;
+            border-image: linear-gradient(to right, var(--secondary), var(--accent));
+            border-image-slice: 1;
+        }
+
+        .phase-content:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .phase-content h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+
+        .phase-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            border-radius: 3px;
+        }
+
+        .phase-content ul {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .phase-content ul li {
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+
+        .phase-content ul li::marker {
+            color: var(--secondary);
+        }
+
+        /* Case Study Section */
+        .case-study-card {
+            background-color: var(--light);
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
+            border-left: 5px solid var(--secondary);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-study-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(225, 29, 72, 0.03) 0%, rgba(59, 130, 246, 0.03) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .case-study-card:hover::before {
+            opacity: 1;
+        }
+
+        .case-study-card h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .case-study-challenge {
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .case-study-challenge h4 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            color: var(--primary-dark);
+        }
+
+        .case-study-challenge h4 i {
+            margin-right: 0.75rem;
+            color: var(--secondary);
+        }
+
+        .case-study-solution {
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .case-study-solution h4 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            color: var(--primary-dark);
+        }
+
+        .case-study-solution h4 i {
+            margin-right: 0.75rem;
+            color: var(--secondary);
+        }
+
+        .case-study-solution ul {
+            margin-top: 0.75rem;
+            padding-left: 1.5rem;
+        }
+
+        .case-study-solution ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .case-study-solution ul li::marker {
+            color: var(--secondary);
+        }
+
+        .case-study-result {
+            font-style: italic;
+            color: var(--dark);
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote {
+            font-style: italic;
+            padding: 1.5rem;
+            background-color: rgba(17, 24, 39, 0.05);
+            border-left: 3px solid var(--secondary);
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+
+        .quote:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Form Section */
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            border-top: 4px solid transparent;
+            border-image: linear-gradient(to right, var(--secondary), var(--accent));
+            border-image-slice: 1;
+        }
+
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(225, 29, 72, 0.02) 0%, rgba(59, 130, 246, 0.02) 100%);
+            border-radius: 16px;
+            z-index: -1;
+        }
+
+        .form-container:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            transform: translateY(-5px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: white;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .form-control::placeholder {
+            color: #9CA3AF;
+            font-size: 0.95rem;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 15px rgba(225, 29, 72, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            width: 100%;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s ease;
+            z-index: -1;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(225, 29, 72, 0.4);
+            color: white;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .phone-mockup {
+                width: 140px;
+                height: 280px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .app-content {
+                flex-direction: column;
+            }
+
+            .app-list {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--light-gray);
+                padding-right: 0;
+                padding-bottom: 1.5rem;
+                max-height: 250px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-container::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+
+            .left::after, .right::after {
+                left: 18px;
+            }
+
+            .right {
+                left: 0%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 8rem 0 6rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.25rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .tabs {
+                flex-wrap: wrap;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .phone-mockups {
+                display: none;
+            }
+
+            .section-container {
+                padding: 2rem;
+            }
+
+            .case-study-card {
+                padding: 2rem;
+            }
+
+            .form-container {
+                padding: 2rem;
+            }
+        }
+
+        .form-note {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Scroll Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Transform Sangeetha Mobiles into a Technology-First Retail Leader</h1>
+            <h2>Your 800+ stores deserve more than just digital tools. Unleash a complete technology transformation with Mahat App-Generator.</h2>
+            <a href="#form-section" class="cta-button">Get Your Free 3-Day MVP</a>
+
+            <div class="phone-mockups">
+                <div class="phone-mockup phone-1"></div>
+                <div class="phone-mockup phone-2"></div>
+                <div class="phone-mockup phone-3"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Application Categories -->
+    <section class="section-container container" id="app-categories">
+        <h2>Custom Applications Tailored for <br>Sangeetha Mobiles</h2>
+        <p class="text-center">Leverage Mahat's app generator technology to create solutions that transform your retail operations</p>
+
+        <div class="app-grid">
+            <!-- Category Tabs -->
+            <div class="tabs">
+                <button class="tab-button active" data-category="saas">SaaS Applications</button>
+                <button class="tab-button" data-category="core">Core Systems</button>
+                <button class="tab-button" data-category="experience">Experience Enhancers</button>
+                <button class="tab-button" data-category="productivity">Productivity Enablers</button>
+            </div>
+
+            <!-- App Selection and Details Display -->
+            <div class="app-content">
+                <!-- App List for SaaS Applications (Default View) -->
+                <div class="app-list" id="saas-apps">
+                    <div class="app-item active" data-app="vendor-management">Vendor Management SaaS</div>
+                    <div class="app-item" data-app="retail-franchise">Retail Franchise Management</div>
+                    <div class="app-item" data-app="service-provider">Service Provider Network</div>
+                </div>
+
+                <!-- App List for Core Systems (Initially Hidden) -->
+                <div class="app-list" id="core-apps" style="display: none;">
+                    <div class="app-item" data-app="integrated-erp">Integrated ERP System</div>
+                    <div class="app-item" data-app="supply-chain">Supply Chain Management</div>
+                    <div class="app-item" data-app="commission-management">Commission Management System</div>
+                    <div class="app-item" data-app="warranty-management">Warranty Management System</div>
+                </div>
+
+                <!-- App List for Experience Enhancers (Initially Hidden) -->
+                <div class="app-list" id="experience-apps" style="display: none;">
+                    <div class="app-item" data-app="vendor-portal">Vendor Portal</div>
+                    <div class="app-item" data-app="store-manager">Store Manager Dashboard</div>
+                    <div class="app-item" data-app="express-delivery">Express Delivery Management Interface</div>
+                    <div class="app-item" data-app="brand-collaboration">Brand Collaboration Platform</div>
+                </div>
+
+                <!-- App List for Productivity Enablers (Initially Hidden) -->
+                <div class="app-list" id="productivity-apps" style="display: none;">
+                    <div class="app-item" data-app="store-inspection">Store Inspection Tool</div>
+                    <div class="app-item" data-app="visual-merchandising">Visual Merchandising Planner</div>
+                    <div class="app-item" data-app="promotion-approval">Promotion Approval Workflow</div>
+                    <div class="app-item" data-app="training-material">Training Material Manager</div>
+                    <div class="app-item" data-app="store-transfer">Store Transfer Management</div>
+                </div>
+
+                <!-- App Details Area -->
+                <div class="app-details">
+                    <!-- Default content (Vendor Management SaaS) -->
+                    <h3>Vendor Management SaaS</h3>
+                    <p>A comprehensive platform designed to streamline vendor relationships across all 800+ Sangeetha stores, managing everything from onboarding to performance analytics.</p>
+                    <h4>Core Features:</h4>
+                    <ul class="features-list">
+                        <li>Vendor onboarding and profile management</li>
+                        <li>Product catalog management across multiple brands</li>
+                        <li>Order placement and tracking</li>
+                        <li>Invoice processing and payment integration</li>
+                        <li>Performance analytics and vendor scorecards</li>
+                        <li>Contract management with automated renewal alerts</li>
+                        <li>Complaint and issue resolution tracking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Digital Transformation Roadmap -->
+    <section class="section-container container" id="roadmap">
+        <h2>Your Digital Transformation Roadmap</h2>
+        <p class="text-center">Our structured approach ensures quick wins while building toward your complete technology evolution</p>
+
+        <div class="timeline">
+            <div class="timeline-container left">
+                <div class="phase-content">
+                    <h3>Phase 1: <br>Core Systems Enhancement</h3>
+                    <p>Connect all 800+ stores through unified systems that provide real-time visibility and standardized operations.</p>
+                    <ul>
+                        <li>Integrated ERP System deployment</li>
+                        <li>Supply Chain Management implementation</li>
+                        <li>Commission Management System rollout</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-container right">
+                <div class="phase-content">
+                    <h3>Phase 2: <br>Stakeholder Experience Enhancement</h3>
+                    <p>Improve interactions with vendors, store managers, and brands through intuitive digital interfaces.</p>
+                    <ul>
+                        <li>Vendor Portal deployment</li>
+                        <li>Store Manager Dashboard implementation</li>
+                        <li>Express Delivery Management optimization</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-container left">
+                <div class="phase-content">
+                    <h3>Phase 3: <br>New Revenue Stream Development</h3>
+                    <p>Transform Sangeetha from a traditional retailer into a retail technology leader with new business models.</p>
+                    <ul>
+                        <li>Vendor Management SaaS packaging</li>
+                        <li>Service Provider Network launch</li>
+                        <li>Retail Franchise Management expansion</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Mahat Advantage -->
+    <section class="section-container container" id="benefits">
+        <h2>The Mahat Advantage for Sangeetha Mobiles</h2>
+        <p class="text-center">Our unique approach transforms how mobile retailers engage with digital transformation</p>
+
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>5-10X Faster Development</h3>
+                <p>Deploy custom retail applications in weeks instead of months, with fully functional MVPs ready in just 3 days.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Risk-Free Innovation</h3>
+                <p>Our "Proof of Platform" model means no upfront cost for your MVP, reducing innovation risk across your 800+ store network.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Up to 50% Cost Savings</h3>
+                <p>Achieve remarkable cost efficiency compared to traditional development approaches, maximizing your technology budget.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Mobile Retail Expertise</h3>
+                <p>Solutions tailored specifically for electronics retail, addressing inventory management, omnichannel sales, and quick commerce needs.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>100% Code Ownership</h3>
+                <p>Unlike other platforms, you receive complete ownership of all source code with no vendor lock-in or hidden fees.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+                <h3>Outpace Competition</h3>
+                <p>React to market changes 5-10X faster than competitors with rapid application development and deployment.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Case Studies -->
+    <section class="section-container container" id="case-studies">
+        <h2>Success Stories</h2>
+        <p class="text-center">See how Mahat has transformed businesses across industries with record-breaking speed</p>
+
+        <div class="case-study-card">
+            <h3>Global Marine Group: Port Service Management Solution</h3>
+            <div class="case-study-challenge">
+                <h4><i class="fas fa-exclamation-circle"></i> The Challenge:</h4>
+                <p>Client needed an application to efficiently manage hundreds of port services for 550 ships after rapid expansion. Traditional vendors estimated $1-2M and 1.5-2 years of development.</p>
+            </div>
+            <div class="case-study-solution">
+                <h4><i class="fas fa-lightbulb"></i> The Mahat Solution:</h4>
+                <p>Delivered a Multi-Tenant SaaS application with 5 large modules, 18 complex workflows, and 359 unique business actions.</p>
+                <ul>
+                    <li>MVP delivered in 7 days</li>
+                    <li>First module live in 4 weeks</li>
+                    <li>Complete application in 9 months</li>
+                    <li>70% cost reduction</li>
+                </ul>
+            </div>
+            <div class="quote">
+                "Mahat allowed us to launch efficiently, saving significant costs, time, and reputation. The ROI from this app has been the best we've seen in years." - CIO, Global Marine Group
+            </div>
+        </div>
+
+        <div class="case-study-card">
+            <h3>DeepWorks: Mining Vehicle Management Solution</h3>
+            <div class="case-study-challenge">
+                <h4><i class="fas fa-exclamation-circle"></i> The Challenge:</h4>
+                <p>Client needed a complex solution to manage hundreds of heavy vehicles and their drivers in large mines to reduce costs and operational delays.</p>
+            </div>
+            <div class="case-study-solution">
+                <h4><i class="fas fa-lightbulb"></i> The Mahat Solution:</h4>
+                <p>Delivered a sophisticated Multi-Tenant SaaS with 9 modules, 28 complex workflows, and 563 unique business actions.</p>
+                <ul>
+                    <li>MVP in just 10 days</li>
+                    <li>First module in 6 weeks</li>
+                    <li>Alpha release in 3 months</li>
+                    <li>75% cost reduction</li>
+                </ul>
+            </div>
+            <div class="quote">
+                "Mahat was able to show an MVP, finalize the full scope and start delivering in a few weeks. No one matched their speed, quality, cost, and delivery." - CEO, DeepWorks
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Form Section -->
+	<section class="container" id="form-section">
+	    <div class="form-container">
+	        <h2 style="text-align: center; margin-bottom: 2rem;">Apply for Proof of Platform (PoP) Offer</h2>
+	        <p style="text-align: center; margin-bottom: 3rem;">Get your free 3-day MVP and experience the power of Mahat's application platform firsthand</p>
+
+	        <form id="contact-form" action="https://formspree.io/f/xovdagqe" method="POST">
+	            <input type="hidden" name="_replyto" value="ragu@mahat.ai">
+	            <input type="hidden" name="_subject" value="New MVP Request from Sangeetha Mobiles Website">
+
+	            <div class="form-group">
+	                <label for="name">Full Name</label>
+	                <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
+	            </div>
+
+	            <div class="form-group">
+	                <label for="email">Email Address</label>
+	                <input type="email" id="email" name="email" class="form-control" placeholder="your.email@sangeethamobiles.com" required>
+	            </div>
+
+	            <div class="form-group">
+	                <label for="phone">Phone Number</label>
+	                <input type="tel" id="phone" name="phone" class="form-control" placeholder="+91 98765 43210" required>
+	            </div>
+
+	            <div class="form-group">
+	                <label for="requirements">Application Requirement</label>
+	                <textarea id="requirements" class="form-control" name="message" placeholder="Please describe your application requirements in detail..." required></textarea>
+	            </div>
+
+	            <button type="submit" class="btn">Submit for Free MVP</button>
+	        </form>
+
+	        <p class="form-note">By submitting this form, you'll receive your free MVP within 3 days. Our team will reach out to gather any additional details needed.</p>
+	    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.getElementById('contact-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+
+        // Show loading state
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Request Received!',
+                    text: 'Thank you for your interest. Our team will contact you within 24 hours to discuss your MVP.',
+                    confirmButtonColor: '#E11D48',
+                });
+                form.reset();
+            } else {
+                const errorData = await response.json();
+                throw new Error(errorData.error || 'Form submission failed');
+            }
+        } catch (error) {
+            console.error('Form submission error:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Submission Failed',
+                html: `There was an error submitting your request.<br><br>
+                      Please try again or contact us directly at <a href="mailto:ragu@mahat.ai">ragu@mahat.ai</a>`,
+                confirmButtonColor: '#E11D48',
+            });
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+        }
+    });
+</script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add scroll effect to navbar
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    document.querySelector('.navbar').classList.add('scrolled');
+                } else {
+                    document.querySelector('.navbar').classList.remove('scrolled');
+                }
+            });
+
+            // Tab switching functionality
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const appLists = {
+                'saas': document.getElementById('saas-apps'),
+                'core': document.getElementById('core-apps'),
+                'experience': document.getElementById('experience-apps'),
+                'productivity': document.getElementById('productivity-apps')
+            };
+
+            // App details data for each application
+            const appDetails = {
+                // SaaS Applications
+                'vendor-management': {
+                    name: 'Vendor Management SaaS',
+                    description: 'A comprehensive platform designed to streamline vendor relationships across all 800+ Sangeetha stores, managing everything from onboarding to performance analytics.',
+                    features: [
+                        'Vendor onboarding and profile management',
+                        'Product catalog management across multiple brands',
+                        'Order placement and tracking',
+                        'Invoice processing and payment integration',
+                        'Performance analytics and vendor scorecards',
+                        'Contract management with automated renewal alerts',
+                        'Complaint and issue resolution tracking'
+                    ]
+                },
+                'retail-franchise': {
+                    name: 'Retail Franchise Management',
+                    description: 'A complete platform for managing potential franchise store operations, ensuring consistent brand experience across independently owned locations.',
+                    features: [
+                        'Franchise application and onboarding workflow',
+                        'Standardized store setup and branding guidelines',
+                        'Inventory and supply chain integration',
+                        'Performance monitoring and benchmarking',
+                        'Training material distribution and tracking',
+                        'Revenue sharing and financial reporting',
+                        'Compliance monitoring and audit management'
+                    ]
+                },
+                'service-provider': {
+                    name: 'Service Provider Network',
+                    description: 'Create a marketplace connecting independent repair/service providers with retailers, leveraging Sangeetha\'s extensive network and expertise.',
+                    features: [
+                        'Service provider onboarding and verification',
+                        'Skill categorization and service area mapping',
+                        'Service request assignment and tracking',
+                        'Quality rating and feedback system',
+                        'Payment processing and settlement',
+                        'SLA monitoring and performance metrics',
+                        'Customer communication and satisfaction tracking'
+                    ]
+                },
+
+                // Core Systems
+                'integrated-erp': {
+                    name: 'Integrated ERP System',
+                    description: 'A comprehensive system connecting all 800+ stores with headquarters through standardized processes for inventory, finance, HR, and operations.',
+                    features: [
+                        'Centralized inventory management across all locations',
+                        'Financial accounting and reporting',
+                        'Human resource management',
+                        'Purchase order management',
+                        'Multi-location operations visibility',
+                        'Role-based access control',
+                        'Real-time business intelligence dashboards',
+                        'Integration with existing point-of-sale systems'
+                    ]
+                },
+                'supply-chain': {
+                    name: 'Supply Chain Management',
+                    description: 'System for tracking products from manufacturers to stores with real-time visibility to optimize inventory levels and reduce stockouts.',
+                    features: [
+                        'Order forecasting and planning',
+                        'Supplier relationship management',
+                        'Purchase order automation',
+                        'Inbound logistics tracking',
+                        'Inventory allocation across stores',
+                        'Stockout prediction and prevention',
+                        'Returns and reverse logistics management',
+                        'Performance analytics and KPI tracking'
+                    ]
+                },
+                'commission-management': {
+                    name: 'Commission Management System',
+                    description: 'System to track and calculate sales commissions across different product categories, promotions, and sales staff performance metrics.',
+                    features: [
+                        'Dynamic commission structure configuration',
+                        'Sales performance tracking by individual/team',
+                        'Multi-tier commission calculation',
+                        'Promotion and special offer integration',
+                        'Real-time commission visibility for staff',
+                        'Target achievement tracking',
+                        'Commission dispute resolution workflow',
+                        'Integration with payroll systems'
+                    ]
+                },
+                'warranty-management': {
+                    name: 'Warranty Management System',
+                    description: 'System to track warranties, process claims, and manage service tickets to streamline after-sales service and enhance customer satisfaction.',
+                    features: [
+                        'Warranty registration and activation',
+                        'Service ticket creation and tracking',
+                        'Warranty validation and verification',
+                        'Repair status tracking and updates',
+                        'Spare parts inventory management',
+                        'Technician assignment and scheduling',
+                        'Warranty claim settlement with brands',
+                        'Customer communication and satisfaction tracking'
+                    ]
+                },
+
+                // Experience Enhancers
+                'vendor-portal': {
+                    name: 'Vendor Portal',
+                    description: 'Interface for brands and distributors to update inventory, process orders, and track payments, improving collaboration and reducing manual communication.',
+                    features: [
+                        'Vendor self-service profile management',
+                        'Product catalog updates and management',
+                        'Order receipt and confirmation workflow',
+                        'Shipment and delivery tracking',
+                        'Invoice submission and payment status',
+                        'Performance metrics and business insights',
+                        'Announcement and communication center',
+                        'Promotional opportunity management'
+                    ]
+                },
+                'store-manager': {
+                    name: 'Store Manager Dashboard',
+                    description: 'Real-time view of store performance, inventory, and staff productivity enabling store managers to make informed decisions and optimize operations.',
+                    features: [
+                        'Sales performance tracking and comparison',
+                        'Inventory status and alerts',
+                        'Staff productivity and attendance',
+                        'Task management and assignment',
+                        'Promotion implementation tracking',
+                        'Customer feedback monitoring',
+                        'Store maintenance request management',
+                        'Visual merchandising compliance tracking'
+                    ]
+                },
+                'express-delivery': {
+                    name: 'Express Delivery Management Interface',
+                    description: 'Portal for managing Sangeetha\'s innovative 30-minute delivery service, coordinating quick commerce operations and optimizing delivery routes.',
+                    features: [
+                        'Order aggregation and prioritization',
+                        'Delivery zone and time slot management',
+                        'Delivery personnel assignment',
+                        'Route optimization and navigation',
+                        'Real-time delivery tracking',
+                        'Exception handling and rerouting',
+                        'Delivery confirmation and feedback collection',
+                        'Performance analytics and optimization'
+                    ]
+                },
+                'brand-collaboration': {
+                    name: 'Brand Collaboration Platform',
+                    description: 'Interface for co-marketing campaigns with phone manufacturers, facilitating joint promotions and special offers with brand partners.',
+                    features: [
+                        'Campaign proposal and approval workflow',
+                        'Marketing asset management',
+                        'Co-funding and budget tracking',
+                        'Campaign execution timeline',
+                        'Performance tracking and ROI analysis',
+                        'Content creation and distribution',
+                        'Brand guidelines and compliance checking',
+                        'Post-campaign analysis and reporting'
+                    ]
+                },
+
+                // Productivity Enablers
+                'store-inspection': {
+                    name: 'Store Inspection Tool',
+                    description: 'Mobile application for conducting store audits and compliance checks, ensuring consistent brand experience across all locations.',
+                    features: [
+                        'Customizable inspection templates',
+                        'Photo documentation capabilities',
+                        'Issue flagging and categorization',
+                        'Action item assignment and tracking',
+                        'Compliance scoring and benchmarking',
+                        'Historical inspection data analysis',
+                        'Store comparison and trending',
+                        'Integration with store manager dashboard'
+                    ]
+                },
+                'visual-merchandising': {
+                    name: 'Visual Merchandising Planner',
+                    description: 'Tool for planning and implementing product displays and store layouts, standardizing visual presentation across the retail network.',
+                    features: [
+                        'Planogram creation and distribution',
+                        'Display setup guidelines with visuals',
+                        'Compliance verification workflow',
+                        'Brand-specific display requirements',
+                        'Seasonal campaign planning',
+                        'Display performance analytics',
+                        'Digital signage management',
+                        'Store-specific customization options'
+                    ]
+                },
+                'promotion-approval': {
+                    name: 'Promotion Approval Workflow',
+                    description: 'System for creating, approving, and implementing promotional campaigns, streamlining marketing activities and ensuring proper authorization.',
+                    features: [
+                        'Promotion request submission form',
+                        'Multi-level approval routing',
+                        'Budget allocation and tracking',
+                        'Promotion calendar and scheduling',
+                        'Marketing asset generation requests',
+                        'Store implementation tracking',
+                        'Performance monitoring and reporting',
+                        'Historical promotion analysis'
+                    ]
+                },
+                'training-material': {
+                    name: 'Training Material Manager',
+                    description: 'Repository for product information and training resources, keeping store staff updated on new products and selling techniques.',
+                    features: [
+                        'Multimedia content management',
+                        'Product knowledge modules and quizzes',
+                        'Sales technique training materials',
+                        'Certification tracking and verification',
+                        'Brand-specific training content',
+                        'Learning progress tracking',
+                        'Knowledge gap identification',
+                        'Mobile access for in-store learning'
+                    ]
+                },
+                'store-transfer': {
+                    name: 'Store Transfer Management',
+                    description: 'Tool for managing product transfers between stores, optimizing inventory distribution across the retail network.',
+                    features: [
+                        'Transfer request and approval workflow',
+                        'Inventory visibility across locations',
+                        'Transfer prioritization and scheduling',
+                        'Shipping label and documentation generation',
+                        'Transfer receipt and verification',
+                        'Transfer cost tracking and allocation',
+                        'Performance metrics for transfer efficiency',
+                        'Integration with inventory management system'
+                    ]
+                }
+            };
+
+            // Function to update app details display
+            function updateAppDetails(appId) {
+                const details = appDetails[appId];
+                const detailsContainer = document.querySelector('.app-details');
+
+                let featuresHTML = '';
+                details.features.forEach(feature => {
+                    featuresHTML += `<li>${feature}</li>`;
+                });
+
+                detailsContainer.innerHTML = `
+                    <h3>${details.name}</h3>
+                    <p>${details.description}</p>
+                    <h4>Core Features:</h4>
+                    <ul class="features-list">
+                        ${featuresHTML}
+                    </ul>
+                `;
+            }
+
+            // Add click event listeners to tab buttons
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active tab
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Show corresponding app list
+                    const category = this.getAttribute('data-category');
+                    Object.keys(appLists).forEach(key => {
+                        appLists[key].style.display = key === category ? 'block' : 'none';
+                    });
+
+                    // Set first app in category as active and show its details
+                    const firstApp = appLists[category].querySelector('.app-item');
+                    const appItems = document.querySelectorAll('.app-item');
+                    appItems.forEach(item => item.classList.remove('active'));
+                    firstApp.classList.add('active');
+                    updateAppDetails(firstApp.getAttribute('data-app'));
+                });
+            });
+
+            // Add click event listeners to app items
+            const appItems = document.querySelectorAll('.app-item');
+            appItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    // Update active app
+                    appItems.forEach(app => app.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Update details
+                    const appId = this.getAttribute('data-app');
+                    updateAppDetails(appId);
+                });
+            });
+
+            // Add scroll animations
+            const sections = document.querySelectorAll('section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/additional-methods.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+</body>
+</html>
