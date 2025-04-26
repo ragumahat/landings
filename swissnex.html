@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahat × Swissnex | Accelerating Swiss Innovation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+        :root {
+            --royal-blue: #2C3E78;
+            --royal-gold: #C0A062;
+            --royal-purple: #4A3A6A;
+            --royal-cream: #F5F1E8;
+            --royal-dark: #1F2A3E;
+            --text-dark: #333333;
+            --text-light: #FFFFFF;
+            --gradient-royal: linear-gradient(135deg, #2C3E78 0%, #4A3A6A 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: white;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 50px;
+            position: relative;
+            color: var(--royal-dark);
+            text-align: center;
+        }
+
+        .section-title:after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--royal-gold);
+            margin-top: 16px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-royal);
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+            color: var(--text-light);
+        }
+
+        .hero:after {
+            content: "";
+            position: absolute;
+            width: 60%;
+            height: 140%;
+            background: rgba(255, 255, 255, 0.05);
+            top: -20%;
+            right: -20%;
+            transform: rotate(-12deg);
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            max-width: 720px;
+            position: relative;
+            z-index: 2;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 28px;
+            letter-spacing: -1px;
+            text-align: center;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            font-weight: 300;
+            margin-bottom: 40px;
+            max-width: 540px;
+            opacity: 0.9;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 60px;
+            margin-top: 50px;
+            position: relative;
+            justify-content: center;
+        }
+
+        .hero-stats:before {
+            content: "";
+            position: absolute;
+            top: -25px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 600;
+            color: var(--royal-gold);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        /* Features Section */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .feature {
+            background-color: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-bottom: 3px solid var(--royal-gold);
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--royal-blue);
+            text-align: center;
+        }
+
+        .feature-description {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #555;
+            text-align: center;
+        }
+
+		/* Company Tabs Styling */
+		.company-tabs {
+		    display: flex;
+		    border-bottom: 1px solid rgba(192, 160, 98, 0.3);
+		    margin-bottom: 30px;
+		    overflow-x: auto;
+		    scrollbar-width: none;
+		    justify-content: center;
+		    margin-top: 2rem;
+		}
+
+		.company-tabs::-webkit-scrollbar {
+		    display: none;
+		}
+
+		.company-tab {
+		    padding: 14px 30px;
+		    background: none;
+		    border: none;
+		    border-bottom: 3px solid transparent;
+		    cursor: pointer;
+		    font-weight: 600;
+		    color: var(--royal-dark);
+		    opacity: 0.7;
+		    transition: all 0.3s ease;
+		    white-space: nowrap;
+		    font-size: 1.1rem;
+		    font-family: 'Playfair Display', serif;
+		}
+
+		.company-tab.active {
+		    color: var(--royal-purple);
+		    border-bottom-color: var(--royal-gold);
+		    opacity: 1;
+		}
+
+		.company-tab:hover:not(.active) {
+		    opacity: 0.9;
+		    border-bottom-color: rgba(192, 160, 98, 0.3);
+		}
+
+		/* App Content Styling */
+		.company-content {
+		    display: flex;
+		    gap: 30px;
+		    padding: 0 1rem;
+		    margin-top: 2rem;
+		}
+
+		.app-list {
+		    width: 300px;
+		    border-right: 1px solid rgba(192, 160, 98, 0.2);
+		    padding-right: 20px;
+		    max-height: 500px;
+		    overflow-y: auto;
+		}
+
+		.app-item {
+		    padding: 12px 15px;
+		    margin-bottom: 12px;
+		    border-radius: 6px;
+		    cursor: pointer;
+		    transition: all 0.3s ease;
+		    font-size: 0.95rem;
+		    border: 1px solid rgba(192, 160, 98, 0.1);
+		}
+
+		.app-item:hover {
+		    background-color: var(--royal-cream);
+		    transform: translateX(5px);
+		}
+
+		.app-item.active {
+		    background-color: var(--royal-blue);
+		    color: white;
+		    border-color: transparent;
+		    box-shadow: 0 4px 10px rgba(44, 62, 120, 0.15);
+		}
+
+		.app-details {
+		    flex: 1;
+		    padding: 25px 30px;
+		    border-radius: 10px;
+		    background-color: white;
+		    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+		}
+
+		.app-details h3 {
+		    color: var(--royal-blue);
+		    margin-bottom: 15px;
+		    font-size: 1.75rem;
+		    text-align: left;
+		}
+
+		.app-details p {
+		    color: #555;
+		    margin-bottom: 20px;
+		    text-align: left;
+		}
+
+		.app-details h4 {
+		    font-size: 1.2rem;
+		    margin-bottom: 12px;
+		    color: var(--royal-purple);
+		    text-align: left;
+		}
+
+		.features-list {
+		    list-style: none;
+		    margin-bottom: 25px;
+		}
+
+		.features-list li {
+		    padding-left: 1.5rem;
+		    position: relative;
+		    margin-bottom: 10px;
+		    text-align: left;
+		}
+
+		.features-list li:before {
+		    content: "✓";
+		    color: var(--royal-gold);
+		    position: absolute;
+		    left: 0;
+		    font-weight: bold;
+		}
+
+		@media (max-width: 992px) {
+		    .company-content {
+		        flex-direction: column;
+		    }
+
+		    .app-list {
+		        width: 100%;
+		        border-right: none;
+		        border-bottom: 1px solid rgba(192, 160, 98, 0.2);
+		        padding-right: 0;
+		        padding-bottom: 20px;
+		        max-height: 250px;
+		    }
+}
+
+        /* Collaboration Section */
+        .feature.collaboration {
+            counter-increment: collab-counter;
+            position: relative;
+            padding-top: 40px;
+        }
+
+        .feature.collaboration .feature-title:before {
+            content: counter(collab-counter) ". ";
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--royal-gold);
+        }
+
+        /* CTA Section */
+        .cta {
+            background: var(--gradient-royal);
+            color: var(--text-light);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta:before, .cta:after {
+            content: "";
+            position: absolute;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .cta:before {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            right: -150px;
+        }
+
+        .cta:after {
+            width: 200px;
+            height: 200px;
+            bottom: -100px;
+            left: -100px;
+        }
+
+        .cta-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .cta-text {
+            font-size: 18px;
+            max-width: 680px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 25px 40px;
+            border: 2px solid var(--royal-gold);
+            border-radius: 4px;
+            font-size: 17px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info a {
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            color: var(--royal-gold);
+        }
+
+        .contact-separator {
+            margin: 0 15px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .partner-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 70px 0;
+            }
+
+            .hero {
+                padding: 100px 0;
+            }
+
+            .hero-title {
+                font-size: 42px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .partner-list {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .contact-separator {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Accelerate Swiss Innovation with Mahat App-Generation Technology</h1>
+                <p class="hero-subtitle">Empower Swiss corporations to develop enterprise applications at unprecedented speed for global market testing and deployment</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">10X</span>
+                        <span class="stat-label">Faster Development</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50%</span>
+                        <span class="stat-label">Cost Reduction</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">3-7</span>
+                        <span class="stat-label">Days to MVP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Why Mahat for Swiss Corporations?</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <h3 class="feature-title">Multi-Market Testing</h3>
+                    <p class="feature-description">Rapidly iterate and validate products across US, Australian, Brazilian and other markets simultaneously, aligning with Swissnex's co-development vision.</p>
+                </div>
+                <div class="feature">
+                    <h3 class="feature-title">Architectural Excellence</h3>
+                    <p class="feature-description">Visual configuration of business, technology, and UX architectures ensures Swiss-quality precision in digital products.</p>
+                </div>
+                <div class="feature">
+                    <h3 class="feature-title">Business-First Development</h3>
+                    <p class="feature-description">Abstract technical complexity behind business-oriented configuration, making it ideal for specialized Swiss industries.</p>
+                </div>
+                <div class="feature">
+                    <h3 class="feature-title">De-risked Innovation</h3>
+                    <p class="feature-description">Our unique <a href="https://mahat.ai/PoP" style="color: var(--royal-gold); text-decoration: none; font-weight: 500;">Proof of Platform (PoP)</a> model delivers working applications in days before significant investment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Swiss Partners Section -->
+<section class="section partners">
+    <div class="container">
+        <h2 class="section-title">Tailored Solutions for Swiss Leaders</h2>
+
+        <!-- Company Tabs -->
+        <div class="company-tabs">
+            <button class="company-tab active" data-company="buhler">Bühler</button>
+            <button class="company-tab" data-company="swisspost">Swiss Post</button>
+            <button class="company-tab" data-company="sulzer">Sulzer</button>
+        </div>
+
+        <!-- App Selection and Details Display -->
+        <div class="company-content">
+            <!-- App List for Bühler (Default View) -->
+            <div class="app-list" id="buhler-apps">
+                <div class="app-item active" data-app="manufacturing-execution">Manufacturing Execution System</div>
+                <div class="app-item" data-app="quality-management">Quality Management Application</div>
+                <div class="app-item" data-app="supplier-network">Supplier Network Platform</div>
+                <div class="app-item" data-app="production-planning">Production Planning System</div>
+                <div class="app-item" data-app="food-processing">Food Processing Control System</div>
+            </div>
+
+            <!-- App List for Swiss Post (Initially Hidden) -->
+            <div class="app-list" id="swisspost-apps" style="display: none;">
+                <div class="app-item" data-app="logistics-optimization">Logistics Optimization System</div>
+                <div class="app-item" data-app="fleet-management">Fleet Management Application</div>
+                <div class="app-item" data-app="customer-tracking">Customer Tracking Interface</div>
+                <div class="app-item" data-app="delivery-routing">Delivery Routing Platform</div>
+                <div class="app-item" data-app="postal-services">Postal Services Management</div>
+            </div>
+
+            <!-- App List for Sulzer (Initially Hidden) -->
+            <div class="app-list" id="sulzer-apps" style="display: none;">
+                <div class="app-item" data-app="equipment-management">Equipment Management System</div>
+                <div class="app-item" data-app="maintenance-tracking">Maintenance Tracking Application</div>
+                <div class="app-item" data-app="field-service">Field Service Management Platform</div>
+                <div class="app-item" data-app="service-contract-management">Service Contract Management System</div>
+                <div class="app-item" data-app="parts-inventory">Parts Inventory System</div>
+            </div>
+
+            <!-- App Details Area -->
+            <div class="app-details">
+                <!-- Default content (Manufacturing Execution System) -->
+                <h3>Manufacturing Execution System</h3>
+                <p>A comprehensive platform designed to streamline production planning, execution, and quality control processes for Bühler's manufacturing operations.</p>
+                <h4>Core Features:</h4>
+                <ul class="features-list">
+                    <li>Real-time production monitoring and data collection</li>
+                    <li>Resource allocation and scheduling optimization</li>
+                    <li>Quality control integration and defect tracking</li>
+                    <li>Performance analytics and OEE measurement</li>
+                    <li>Maintenance scheduling and downtime management</li>
+                    <li>Integration with ERP and supply chain systems</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Collaboration Framework -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Our Collaboration Approach</h2>
+            <div class="feature-grid">
+                <div class="feature collaboration">
+                    <h3 class="feature-title">Introduction</h3>
+                    <p class="feature-description">Swissnex facilitates connections between Mahat and Swiss corporations seeking rapid application development capabilities.</p>
+                </div>
+                <div class="feature collaboration">
+                    <h3 class="feature-title">Proof of Platform</h3>
+                    <p class="feature-description">Swiss corporations provide basic requirements, and Mahat delivers a functional MVP in 3-4 days through <br>our <a href="https://mahat.ai/PoP" style="color: var(--royal-gold); text-decoration: none; font-weight: 500;">PoP</a> offering.</p>
+                </div>
+                <div class="feature collaboration">
+                    <h3 class="feature-title">Co-Development</h3>
+                    <p class="feature-description">Collaborative development of full application, with deployment for testing across multiple global markets.</p>
+                </div>
+                <div class="feature collaboration">
+                    <h3 class="feature-title">Expansion</h3>
+                    <p class="feature-description">Establish ongoing partnership for digital product development and extend capabilities as needed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta">
+        <div class="container">
+            <h2 class="cta-title">Partner with Mahat</h2>
+            <p class="cta-text">Let's enable Swiss corporations to do more with less through <br>our <a href="https://mahat.ai/PoP" style="color: var(--royal-gold); text-decoration: none; font-weight: 500;">PoP offering</a>, increasing the affordability and accessibility<br> of digital products for global markets.</p>
+            <div class="contact-info">
+                <strong>Get in Touch</strong><br><br>
+                <a href="mailto:ragu@mahat.ai">Mail: ragu@mahat.ai</a> <span class="contact-separator">|</span> <a href="tel:+917010209758">Phone/WhatsApp: +91 7010209758</a>
+            </div>
+        </div>
+    </section>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Tab switching functionality
+    const companyTabs = document.querySelectorAll('.company-tab');
+    const appLists = {
+        'buhler': document.getElementById('buhler-apps'),
+        'swisspost': document.getElementById('swisspost-apps'),
+        'sulzer': document.getElementById('sulzer-apps')
+    };
+
+    // App details data for each application
+    const appDetails = {
+        // Bühler Applications
+        'manufacturing-execution': {
+            name: 'Manufacturing Execution System',
+            description: 'A comprehensive platform designed to streamline production planning, execution, and quality control processes for Bühler\'s manufacturing operations.',
+            features: [
+                'Structured workflow management for production processes',
+                'Resource allocation and scheduling management',
+                'Quality control documentation and inspection tracking',
+                'Performance metrics collection and reporting',
+                'Maintenance scheduling and downtime documentation',
+                'Integration with existing ERP systems through standardized APIs'
+            ]
+        },
+        'quality-management': {
+            name: 'Quality Management Application',
+            description: 'Enforce quality standards throughout production processes with comprehensive tracking and reporting capabilities.',
+            features: [
+                'Quality inspection workflows and digital checklists',
+                'Defect tracking and categorization',
+                'Standard operating procedure documentation',
+                'Compliance documentation and audit trails',
+                'Supplier quality documentation management',
+                'Configurable quality alerts based on threshold rules'
+            ]
+        },
+        'supplier-network': {
+            name: 'Supplier Network Platform',
+            description: 'Connect seamlessly with suppliers to manage components, ensure on-time delivery, and maintain documentation across the supply chain.',
+            features: [
+                'Supplier onboarding workflows and performance tracking',
+                'Order placement and status tracking interface',
+                'Quality compliance documentation management',
+                'Document exchange and version control',
+                'Structured communication channels and issue logging',
+                'Supply chain visibility and reporting'
+            ]
+        },
+        'production-planning': {
+            name: 'Production Planning System',
+            description: 'Optimize production schedules and resource allocation for improved efficiency in Bühler\'s manufacturing facilities.',
+            features: [
+                'Visual production schedule management',
+                'Capacity planning and constraint documentation',
+                'Material requirements planning and inventory integration',
+                'Production scenario planning tools',
+                'Labor and machine allocation tracking',
+                'Production KPI dashboards and standard reports'
+            ]
+        },
+        'food-processing': {
+            name: 'Food Processing Control System',
+            description: 'Monitor and document food processing workflows and ensure product quality and safety standards are consistently met.',
+            features: [
+                'Process parameter documentation and tracking',
+                'Food safety compliance documentation management',
+                'Recipe management and version control',
+                'Batch tracking and traceability documentation',
+                'Energy usage monitoring and reporting',
+                'Regulatory compliance documentation generator'
+            ]
+        },
+
+        // Swiss Post Applications
+        'logistics-optimization': {
+            name: 'Logistics Optimization System',
+            description: 'Enhance delivery efficiency with streamlined route management, resource allocation, and operational analytics for Swiss Post\'s logistics operations.',
+            features: [
+                'Route planning and management tools',
+                'Delivery time window scheduling and management',
+                'Resource utilization tracking and reporting',
+                'Integration with external mapping services',
+                'Operational metrics collection and reporting',
+                'Last-mile delivery tracking and documentation'
+            ]
+        },
+        'fleet-management': {
+            name: 'Fleet Management Application',
+            description: 'Monitor vehicle performance, maintenance needs, and driver activities to improve fleet efficiency and safety.',
+            features: [
+                'Vehicle maintenance scheduling and documentation',
+                'Fuel consumption tracking and expense management',
+                'Driver assignment and schedule management',
+                'Vehicle utilization reporting',
+                'Compliance documentation for transportation regulations',
+                'Incident reporting and resolution tracking'
+            ]
+        },
+        'customer-tracking': {
+            name: 'Customer Tracking Interface',
+            description: 'Provide customers with visibility into package status and estimated delivery information.',
+            features: [
+                'Package status tracking and updates',
+                'Delivery time estimate management',
+                'Delivery preference configuration tools',
+                'Address verification and correction workflows',
+                'Proof of delivery documentation management',
+                'Customer feedback collection and organization'
+            ]
+        },
+        'delivery-routing': {
+            name: 'Delivery Routing Platform',
+            description: 'Optimize delivery routes across Switzerland to improve efficiency while maintaining service quality.',
+            features: [
+                'Multi-stop route planning and management',
+                'Route adjustment and modification tools',
+                'Delivery zone and territory management',
+                'Time window constraint configuration',
+                'Cross-dock and hub coordination tools',
+                'Driver assignment and workload management'
+            ]
+        },
+        'postal-services': {
+            name: 'Postal Services Management',
+            description: 'Manage the full range of postal services including mail processing, sorting, and delivery operations across regions.',
+            features: [
+                'Mail volume tracking and capacity management',
+                'Sorting facility workflow coordination',
+                'Postal code and address database management',
+                'International mail processing documentation',
+                'Service level monitoring and standard reporting',
+                'Mail delivery workflow management'
+            ]
+        },
+
+        // Sulzer Applications
+        'equipment-management': {
+            name: 'Equipment Management System',
+            description: 'Track performance, maintenance history, and operational metrics for Sulzer\'s industrial equipment and components.',
+            features: [
+                'Equipment inventory and lifecycle documentation',
+                'Performance parameter tracking and monitoring',
+                'Warranty and service contract management',
+                'Technical documentation repository and versioning',
+                'Replacement parts inventory management',
+                'Procurement system integration via standard connectors'
+            ]
+        },
+        'maintenance-tracking': {
+            name: 'Maintenance Tracking Application',
+            description: 'Schedule preventive maintenance, manage service requests, and document repair history to maximize equipment uptime.',
+            features: [
+                'Preventive maintenance scheduling calendar',
+                'Work order creation and status tracking',
+                'Service history documentation and reporting',
+                'Spare parts inventory management',
+                'Technician assignment and scheduling',
+                'Maintenance cost tracking and reporting'
+            ]
+        },
+        'field-service': {
+            name: 'Field Service Management Platform',
+            description: 'Support on-site service teams with access to technical documentation, customer history, and parts inventory information.',
+            features: [
+                'Service information access and management',
+                'Customer service history documentation',
+                'On-site reporting and documentation tools',
+                'Parts ordering and inventory checking functions',
+                'Time tracking and expense recording',
+                'Customer signature capture and invoice generation'
+            ]
+        },
+        'service-contract-management': {
+            name: 'Service Contract Management System',
+            description: 'A comprehensive solution to manage service agreements, maintenance schedules, and customer entitlements for Sulzer\'s industrial equipment customers.',
+            features: [
+                'Contract creation and lifecycle management',
+                'Service level agreement (SLA) tracking and enforcement',
+                'Automated maintenance schedule generation',
+                'Customer entitlement verification and validation',
+                'Contract renewal notification and workflow management',
+                'Revenue recognition and financial reporting tools'
+            ]
+        },
+        'parts-inventory': {
+            name: 'Parts Inventory System',
+            description: 'Manage Sulzer\'s extensive inventory of replacement parts, ensuring optimal stock levels and rapid fulfillment of service needs.',
+            features: [
+                'Parts inventory tracking across multiple locations',
+                'Inventory threshold-based reordering system',
+                'Barcode/RFID integration for inventory tracking',
+                'Parts compatibility and cross-reference database',
+                'Inventory lifecycle management',
+                'Inventory valuation and financial reporting tools'
+            ]
+        }
+    };
+
+    // Function to update app details display
+    function updateAppDetails(appId) {
+        const details = appDetails[appId];
+        const detailsContainer = document.querySelector('.app-details');
+
+        let featuresHTML = '';
+        details.features.forEach(feature => {
+            featuresHTML += `<li>${feature}</li>`;
+        });
+
+        detailsContainer.innerHTML = `
+            <h3>${details.name}</h3>
+            <p>${details.description}</p>
+            <h4>Core Features:</h4>
+            <ul class="features-list">
+                ${featuresHTML}
+            </ul>
+        `;
+    }
+
+    // Add click event listeners to company tabs
+    companyTabs.forEach(button => {
+        button.addEventListener('click', function() {
+            // Update active tab
+            companyTabs.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+
+            // Show corresponding app list
+            const company = this.getAttribute('data-company');
+            Object.keys(appLists).forEach(key => {
+                appLists[key].style.display = key === company ? 'block' : 'none';
+            });
+
+            // Set first app in company as active and show its details
+            const firstApp = appLists[company].querySelector('.app-item');
+            const appItems = document.querySelectorAll('.app-item');
+            appItems.forEach(item => item.classList.remove('active'));
+            firstApp.classList.add('active');
+            updateAppDetails(firstApp.getAttribute('data-app'));
+        });
+    });
+
+    // Add click event listeners to app items
+    const appItems = document.querySelectorAll('.app-item');
+    appItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Update active app
+            appItems.forEach(app => app.classList.remove('active'));
+            this.classList.add('active');
+
+            // Update details
+            const appId = this.getAttribute('data-app');
+            updateAppDetails(appId);
+        });
+    });
+});
+
+</script>
+
+</body>
+</html>
