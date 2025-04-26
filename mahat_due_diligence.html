@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahat.ai Due Diligence Questionnaire</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-bg: #f8fafc;
+            --medium-bg: #f1f5f9;
+            --dark-text: #1e293b;
+            --medium-text: #475569;
+            --light-text: #64748b;
+            --border-color: #e2e8f0;
+            --border-radius: 8px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: #f1f5f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .questionnaire-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+
+        .questionnaire-title {
+            color: var(--primary-color);
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0;
+            padding: 25px 30px 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .questionnaire-description {
+            color: var(--medium-text);
+            font-size: 1rem;
+            padding: 0 30px 20px;
+            margin: 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Accordion Styles */
+        .accordion {
+            width: 100%;
+        }
+
+        .accordion-section {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-header {
+            width: 100%;
+            padding: 20px 30px;
+            text-align: left;
+            background-color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+            position: relative;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .section-header:hover {
+            background-color: var(--light-bg);
+        }
+
+        .section-header[aria-expanded="true"] {
+            background-color: var(--light-bg);
+            box-shadow: inset 0 -1px 0 var(--border-color);
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            font-weight: 600;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .accordion-icon {
+            margin-left: 10px;
+            transition: var(--transition);
+            color: var(--medium-text);
+        }
+
+        .section-header[aria-expanded="true"] .accordion-icon {
+            transform: rotate(180deg);
+            color: var(--accent-color);
+        }
+
+        .section-content {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background-color: var(--light-bg);
+        }
+
+        /* Question Items */
+        .question-item {
+            margin: 15px 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .question-header {
+            width: 100%;
+            padding: 16px 20px;
+            text-align: left;
+            background-color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+
+        .question-header:hover {
+            background-color: var(--light-bg);
+        }
+
+        .question-header[aria-expanded="true"] {
+            background-color: var(--light-bg);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .question-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            font-weight: 600;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .question-text {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .question-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            /* Remove padding from content and put it on inner div */
+            padding: 0;
+        }
+
+        .question-content-inner {
+            padding: 20px;
+            /* Ensure padding is included in height calculations */
+            box-sizing: border-box;
+        }
+
+        /* Allow content to overflow when expanded */
+        .question-content[aria-expanded="true"] {
+            overflow: visible;
+            /* Use a large max-height value to accommodate all content */
+            max-height: 5000px; /* Adjust based on your longest content */
+        }
+
+        /* Content Styles */
+        .question-content p {
+            margin: 0 0 15px 0;
+            color: var(--medium-text);
+            line-height: 1.7;
+        }
+
+        .question-content ul,
+        .question-content ol {
+            margin: 0 0 15px 20px;
+            padding: 0;
+            color: var(--medium-text);
+        }
+
+        .question-content li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .question-content h4 {
+            color: var(--primary-color);
+            margin: 20px 0 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .question-content h5 {
+            color: var(--primary-color);
+            margin: 18px 0 10px 0;
+            font-size: 1rem;
+        }
+
+        /* Table Styles */
+        .comparison-table {
+            margin: 20px 0;
+            overflow-x: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        .comparison-table th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .comparison-table td {
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            vertical-align: top;
+            background-color: white;
+        }
+
+        .comparison-table tr:nth-child(even) td {
+            background-color: var(--light-bg);
+        }
+
+        .comparison-table ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .comparison-table li {
+            margin-bottom: 8px;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background-color: var(--light-bg);
+            border-left: 4px solid var(--accent-color);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        .highlight-box h5 {
+            color: var(--accent-color);
+            margin-top: 0;
+        }
+
+        /* Links */
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .questionnaire-title {
+                font-size: 1.5rem;
+                padding: 20px 20px 15px;
+            }
+
+            .questionnaire-description {
+                padding: 0 20px 15px;
+            }
+
+            .section-header {
+                padding: 15px 20px;
+                font-size: 1rem;
+            }
+
+            .question-header {
+                padding: 12px 15px;
+                font-size: 0.95rem;
+            }
+
+            .section-content {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="questionnaire-container">
+        <h1 class="questionnaire-title">Mahat.ai Due Diligence Questionnaire</h1>
+        <p class="questionnaire-description">
+            To evaluate Mahat.ai for potential collaboration, co-creation, or integration opportunities,
+            this questionnaire assesses Mahat's technical maturity, platform scalability, strategic fit, and commercial flexibility.
+        </p>
+
+        <div class="accordion">
+            <!-- Section 1 -->
+            <div class="accordion-section">
+                <button class="section-header" aria-expanded="false" aria-controls="section-1-content">
+                    <span class="section-number">1</span>
+                    <span class="section-title">Platform Capabilities & Differentiators</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div id="section-1-content" class="section-content">
+                    <!-- Question A -->
+                    <div class="question-item">
+                        <button class="question-header" aria-expanded="false" aria-controls="question-1A-content">
+                            <span class="question-letter">A</span>
+                            <span class="question-text">What types of applications can your platform generate (web, mobile, PWAs)?</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="question-1A-content" class="question-content">
+                            <div class="question-content-inner">
+                                <p>In the context of Transactional Business Applications, Mahat can generate the following types of applications:</p>
+                                <ul>
+                                    <li>Web Apps</li>
+                                    <li>Responsive Mobile Apps</li>
+                                    <li>Flutter-based Native Containerized Mobile Apps</li>
+                                </ul>
+                                <p>We classify Transactional Business Applications (TBAs) into the following categories:</p>
+                                <ol>
+                                    <li>SaaS Business Applications</li>
+                                    <li>Core Systems</li>
+                                    <li>Experience Enhancers</li>
+                                    <li>Productivity Enablers</li>
+                                </ol>
+                                <p>A detailed definition and description of each category along with industry-wise examples is explained <a href="https://mahat.ai/mahat-apps">here</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question B -->
+                    <div class="question-item">
+                        <button class="question-header" aria-expanded="false" aria-controls="question-1B-content">
+                            <span class="question-letter">B</span>
+                            <span class="question-text">How does your AI/heuristic engine interpret business requirements and translate them into code?</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="question-1B-content" class="question-content">
+                            <div class="question-content-inner">
+                                <p>Mahat is an intent and purpose driven system. It accepts and acts upon development inputs in terms of intent and purpose. It views software applications as a combination of three types of architectures: Technical, Business and User Experience Architectures. Each one of these architectures have typical patterns for each dimension within them in the context of TBAs. Mahat's <em>Native Heuristic Engine</em> and/or its <em>Curated AI Integration</em> have both been coded to interpret the user's intent and purpose in terms of <em>each parameter</em> within <em>each dimension</em> of the said architectures and <em>suggest appropriate choices</em> to the user. Once these choices are selected and further customized through visual configurations, upon publishing, Mahat relies on the chosen technical and UX parameters to generate the code.</p>
+
+                                <h4>Technical Architecture: Dimensions and Parameters</h4>
+                                <ol>
+                                    <li>
+                                        <strong>Dimension: Architectural Decisions</strong><br>
+                                        <strong>Parameters:</strong> Tenancy, Architectural Style, Pattern and Platform; Data Access and Database Choices, Access Channels etc.
+                                    </li>
+                                    <li>
+                                        <strong>Dimension: Cross-Cutting Concerns</strong><br>
+                                        <strong>Parameters:</strong> AAA Mechanisms, Validation and Exception Libraries, Auditing Fields, Audit Storage, Notification Channels, Caching and Storage.
+                                    </li>
+                                    <li>
+                                        <strong>Dimension: Internationalization</strong><br>
+                                        <strong>Parameters:</strong> Multilingual Support, Date Formats, Currency and Units.
+                                    </li>
+                                    <li>
+                                        <strong>Dimension: Privacy & Security</strong><br>
+                                        <strong>Parameters:</strong> Authorization Policy, Encryption, Two Factor Authorization, HTTPS Support, PIN Reminder, Auto Logoff, and Captcha Support.
+                                    </li>
+                                    <li>
+                                        <strong>Dimension: Integration</strong><br>
+                                        <strong>Parameters:</strong> Configuration of External API Settings, Managing Endpoints to integrate seamlessly with other systems; Setting up and managing cloud services including Azure, AWS, Git, Google Cloud and Digital Ocean for better deployment and version control; Managing User Identities, Authentication and Authorization using robust Identity Server Configuration.
+                                    </li>
+                                </ol>
+
+                                <h4>Business Architecture: Dimensions and Parameters</h4>
+                                <ol>
+                                    <li>
+                                        <strong>Dimension: Business Purpose and Intent</strong><br>
+                                        <strong>Parameters:</strong> Business Model, Industry Vertical
+                                    </li>
+                                    <li>
+                                        <strong>Dimension: Stakeholders</strong><br>
+                                        <strong>Parameter:</strong> Name Values
+                                    </li>
+                                    <li>
+                                        <strong>Dimension: Business Requirements</strong><br>
+                                        <strong>Parameters:</strong><br>
+                                        <ol type="a">
+                                            <li>Business Functions.</li>
+                                            <li>Business Processes for each Business Function.</li>
+                                            <li>Business Objects for each Business Process.</li>
+                                            <li>Object-Attributes for each Business Object including Business Rules and Business Logic.</li>
+                                            <li>Business Actions to be performed on each Business Object by authorized Users.</li>
+                                            <li>UI Patterns associated with each Business Action within any Business Object.</li>
+                                        </ol>
+                                    </li>
+                                </ol>
+
+                                <h4>UX Architecture: Dimensions and Parameters</h4>
+                                <ol>
+                                    <li>
+                                        <strong>Dimension: UI Elements</strong><br>
+                                        <strong>Parameters:</strong> Design Frameworks, Design Standards, Icon and Component Libraries; Landing Page Settings, Accessibility and Responsiveness
+                                    </li>
+                                    <li>
+                                        <strong>Dimension: Creative Assets</strong><br>
+                                        <strong>Parameters:</strong> Favicons, Splash Screens, App Icons, Error Screens
+                                    </li>
+                                    <li>
+                                        <strong>Dimension: Header & Body</strong><br>
+                                        <strong>Parameters:</strong> Font Family, Color, Size, Background and Styles for Headers, Sub-headers, Body, Buttons etc.
+                                    </li>
+                                    <li>
+                                        <strong>Dimension: Web and Mobile Navigation</strong><br>
+                                        <strong>Parameters:</strong> Header and Side band background, Link color states etc for the web and mobile versions of the app.
+                                    </li>
+                                    <li>
+                                        <strong>Dimension: Buttons</strong><br>
+                                        <strong>Parameters:</strong> Size, Color and Link related options.
+                                    </li>
+                                </ol>
+
+                                <p>Besides automated parameter suggestions for all three architectures, Mahat also automatically writes the user stories, draws up the required Domain Models or ER diagrams based on the above process.</p>
+                                <p>The code is generated based on the collaboration between the system and the user in defining the business, technology and user experience architectures and the business objects. The generated code is pushed into the code repositories for a one-click 'publish & preview' through automated CI / CD pipelines.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question C -->
+                    <div class="question-item">
+                        <button class="question-header" aria-expanded="false" aria-controls="question-1C-content">
+                            <span class="question-letter">C</span>
+                            <span class="question-text">What frameworks, languages, and architectures are used in generated applications?</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="question-1C-content" class="question-content">
+                            <div class="question-content-inner">
+                                <p>We use the Microsoft .net Core framework based on C# as our foundation for code generation. We support the layered architectural style with variants such as MVC based apps or API based apps or a combination of these.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question D -->
+                    <div class="question-item">
+                        <button class="question-header" aria-expanded="false" aria-controls="question-1D-content">
+                            <span class="question-letter">D</span>
+                            <span class="question-text">How do you differentiate from platforms like OutSystems, Mendix, PowerApps?</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="question-1D-content" class="question-content">
+                            <div class="question-content-inner">
+                                <h4>Mahat vs. Low-Code Platforms: Key Differentiators</h4>
+
+                                <h5>1. Co-Development: AI-Driven, End-to-End Architecture</h5>
+
+                                <div class="comparison-table">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Mahat</th>
+                                                <th>Low-Code (OutSystems/Mendix/Power Apps)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <ul>
+                                                        <li>Begins with <strong>application purpose</strong> (e.g., "Build a Inventory Management App") and uses platform's heuristic engine and/or AI to <strong>auto-suggest</strong> technical, business, and UX architectures.</li>
+                                                        <li><strong>Generates not just code</strong>, but also <strong>user stories, design docs, and ER diagrams</strong>.</li>
+                                                        <li><strong>Context-aware AI</strong> ensures suggestions align with business architecture, reducing manual configuration.</li>
+                                                    </ul>
+                                                </td>
+                                                <td>
+                                                    <ul>
+                                                        <li><strong>Starts with UI or workflow assembly</strong>, not business intent.</li>
+                                                        <li>AI (e.g., Mendix Assist) is <strong>limited to microflows or UI snippets</strong>, not full-system architecture.</li>
+                                                        <li><strong>No automated documentation</strong>—ER diagrams, user stories must be manually created.</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <h5>2. Complete Ownership & Freedom</h5>
+
+                                <div class="comparison-table">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Mahat</th>
+                                                <th>Low-Code</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <ul>
+                                                        <li><strong>100% ownership</strong> of all generated assets:
+                                                            <ul>
+                                                                <li><strong>Source code</strong> (framework-agnostic, e.g., React/.NET).</li>
+                                                                <li><strong>Design documents, requirements specs</strong>.</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li><strong>No vendor lock-in</strong>—deploy anywhere (AWS, on-prem, etc.) with <strong>no runtime licensing</strong>.</li>
+                                                    </ul>
+                                                </td>
+                                                <td>
+                                                    <ul>
+                                                        <li><strong>Proprietary output</strong>:
+                                                            <ul>
+                                                                <li>OutSystems/Mendix generate <strong>obfuscated or platform-dependent code</strong>.</li>
+                                                                <li>Power Apps <strong>requires Azure/Microsoft stack</strong>.</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li><strong>Ongoing costs</strong>: Hosting/licensing mandates (e.g., Mendix Cloud, OutSystems ODC).</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <h5>3. Agility: Lean, Purpose-Driven Development</h5>
+
+                                <div class="comparison-table">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Mahat</th>
+                                                <th>Low-Code</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <ul>
+                                                        <li><strong>Configures complexity effortlessly</strong> via intent (e.g., "inventory management system with automated stock alerts and supplier integrations").</li>
+                                                    </ul>
+                                                </td>
+                                                <td>
+                                                    <ul>
+                                                        <li><strong>Manual bridging of business/technical gaps</strong>:
+                                                            <ul>
+                                                                <li>Example: Building a "multi-tenant SaaS app" requires <strong>custom scripting</strong> for tenancy logic in Mendix/OutSystems.</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li><strong>Performance tuning</strong> (DB indexing, state management) falls on developers.</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="highlight-box">
+                                    <h5>Why Mahat Wins?</h5>
+                                    <p>Mahat <strong>eliminates low-code's trade-offs</strong> by <strong>automating architecture from intent</strong>—making it the <strong>next-gen standard</strong> for complex apps.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="accordion-section">
+                <button class="section-header" aria-expanded="false" aria-controls="section-2-content">
+                    <span class="section-number">2</span>
+                    <span class="section-title">Application Lifecycle & Performance</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div id="section-2-content" class="section-content">
+                    <!-- Question A -->
+                    <div class="question-item">
+                        <button class="question-header" aria-expanded="false" aria-controls="question-2A-content">
+                            <span class="question-letter">A</span>
+                            <span class="question-text">What is your average time-to-MVP and time-to-scale?</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="question-2A-content" class="question-content">
+                            <div class="question-content-inner">
+                                <ul>
+                                    <li>We do a functional MVP in 3 – 5 business days for the purpose of discovering the full scope of the application through extensive user/customer feedback.</li>
+                                    <li>Simple to medium sized apps (75 to 150 Business Actions) can be rolled out in 2 to 4 Weeks.</li>
+                                    <li>SaaS apps with 200 - 400 Business Actions can be rolled out in 12 to 16 weeks.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question B -->
+                    <div class="question-item">
+                        <button class="question-header" aria-expanded="false" aria-controls="question-2B-content">
+                            <span class="question-letter">B</span>
+                            <span class="question-text">How do you handle app versioning, rollback, and updates?</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="question-2B-content" class="question-content">
+                            <div class="question-content-inner">
+                                <ul>
+                                    <li>Support for all CI / CD best practices for versioning during each publish of the application, Collaborative branching and cloud based deployment triggers</li>
+                                    <li>Manual Save point and download of meta data for safekeeping</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question C -->
+                    <div class="question-item">
+                        <button class="question-header" aria-expanded="false" aria-controls="question-2C-content">
+                            <span class="question-letter">C</span>
+                            <span class="question-text">Can your apps scale to support enterprise-level traffic and users?</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="question-2C-content" class="question-content">
+                            <div class="question-content-inner">
+                                <ul>
+                                    <li>High Availability and Dynamic scalability is ensured through containerized and flexible PaaS based deployments based on customer choice on Azure, AWS or third party clouds</li>
+                                    <li>Support for Flexible scalable relational databases like SQL Server, PostgreSQL</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="accordion-section">
+                <button class="section-header" aria-expanded="false" aria-controls="section-3-content">
+                    <span class="section-number">3</span>
+                    <span class="section-title">Integration & Extensibility</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div id="section-3-content" class="section-content">
+                    <!-- Question A -->
+                    <div class="question-item">
+                        <button class="question-header" aria-expanded="false" aria-controls="question-3A-content">
+                            <span class="question-letter">A</span>
+                            <span class="question-text">What integration protocols are supported (REST, SOAP, APIs, webhooks)?</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="question-3A-content" class="question-content">
+                            <div class="question-content-inner">
+                                <p>Based on the architectural pattern chosen, API are automatically generated to ensure that the generated application can be integrable with other third party applications downstream. To get data from external system, Mahat is able to consume RESTful services.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question B -->
+                    <div class="question-item">
+                        <button class="question-header" aria-expanded="false" aria-controls="question-3B-content">
+                            <span class="question-letter">B</span>
+                            <span class="question-text">Do you support integration with ERP, CRM, HRMS platforms (SAP, Salesforce, etc.)?</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="question-3B-content" class="question-content">
+                            <div class="question-content-inner">
+                                <p>There are no out of the box integrations with applications of the above mentioned category. Right now Mahat fully supports API based integrations. However, based on customer requirements, we are open to build or publish plugins for these as and when required.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question C -->
+                    <div class="question-item">
+                        <button class="question-header" aria-expanded="false" aria-controls="question-3C-content">
+                            <span class="question-letter">C</span>
+                            <span class="question-text">Can Mahat.ai apps be embedded or hosted on third-party infrastructure?</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="question-3C-content" class="question-content">
+                            <div class="question-content-inner">
+                                <p>Absolutely. We already support deployment on customer based own or third party infrastructure. Our customers are actively using the Azure IaaS, Azure PaaS, AWS IaaS, Azure Kubernetes, AWS Kubernetes, Google Cloud or Digital Ocean environments.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4 -->
+            <div class="accordion-section">
+                <button class="section-header" aria-expanded="false" aria-controls="section-4-content">
+                    <span class="section-number">4</span>
+                    <span class="section-title">Governance, Security & Compliance</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div id="section-4-content" class="section-content">
+                    <!-- Question A -->
+                    <div class="question-item">
+                        <button class="question-header" aria-expanded="false" aria-controls="question-4A-content">
+                            <span class="question-letter">A</span>
+                            <span class="question-text">How is source code ownership managed post-delivery?</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="question-4A-content" class="question-content">
+                            <div class="question-content-inner">
+                                <p>Source code, requirements documents, design artifacts are completely owned by the customer.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question B -->
+                    <div class="question-item">
+                        <button class="question-header" aria-expanded="false" aria-controls="question-4B-content">
+                            <span class="question-letter">B</span>
+                            <span class="question-text">What security frameworks do you follow (e.g., OWASP, GDPR, ISO)?</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="question-4B-content" class="question-content">
+                            <div class="question-content-inner">
+                                <p>We are following the OWASP guidelines for web application development.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question C -->
+                    <div class="question-item">
+                        <button class="question-header" aria-expanded="false" aria-controls="question-4C-content">
+                            <span class="question-letter">C</span>
+                            <span class="question-text">How do you manage data protection, role-based access, and compliance?</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="question-4C-content" class="question-content">
+                            <div class="question-content-inner">
+                                <p>Sensitive data such as user passwords are encrypted on rest or in transit. RBAC is used at the action level for each business object.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5 -->
+            <div class="accordion-section">
+                <button class="section-header" aria-expanded="false" aria-controls="section-5-content">
+                    <span class="section-number">5</span>
+                    <span class="section-title">Collaboration & Co-Creation</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div id="section-5-content" class="section-content">
+                    <!-- Question A -->
+                    <div class="question-item">
+                        <button class="question-header" aria-expanded="false" aria-controls="question-5A-content">
+                            <span class="question-letter">A</span>
+                            <span class="question-text">Can you support co-development with our engineering teams?</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="question-5A-content" class="question-content">
+                            <div class="question-content-inner">
+                                <p>Yes, we intend to do this for the first two projects for your team to get well trained on the platform. If our support is needed beyond that period, we can do it depending on the engagement model and availability of our experts.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question B -->
+                    <div class="question-item">
+                        <button class="question-header" aria-expanded="false" aria-controls="question-5B-content">
+                            <span class="question-letter">B</span>
+                            <span class="question-text">Do you offer functional analysts or solution architects to interpret business needs?</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="question-5B-content" class="question-content">
+                            <div class="question-content-inner">
+                                <p>Yes, depending on the engagement model and availability of our business technologists.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question C -->
+                    <div class="question-item">
+                        <button class="question-header" aria-expanded="false" aria-controls="question-5C-content">
+                            <span class="question-letter">C</span>
+                            <span class="question-text">What is your engagement process for PoCs and co-innovation workshops?</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="question-5C-content" class="question-content">
+                            <div class="question-content-inner">
+                                <ol>
+                                    <li>You give the basic requirements for an application (from a Sales Qualified Lead or for your own product).</li>
+                                    <li>We give you a fully functional MVP in 3 to 5 days (more than a PoC) for the purpose of discovering the full scope of the applicationa and doing accurate development estimation (team size, time and cost).</li>
+                                    <li>You participate in the full app discovery workshop with Mahat with reference to the MVP -- 1 to 3 days (depending on app-size and your availability). Besides identifying the full scope of the core application, innovative features/aspects of the app that can give strategic business advantages are explored in this workshop.</li>
+                                    <li>After the workshop, we will give a clear Mahat Estimate and a comparative high-code/low-code estimate that can be independently verified.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 6 -->
+            <div class="accordion-section">
+                <button class="section-header" aria-expanded="false" aria-controls="section-6-content">
+                    <span class="section-number">6</span>
+                    <span class="section-title">Reusability & Accelerators</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div id="section-6-content" class="section-content">
+                    <!-- Question A -->
+                    <div class="question-item">
+                        <button class="question-header" aria-expanded="false" aria-controls="question-6A-content">
+                            <span class="question-letter">A</span>
+                            <span class="question-text">Do you provide reusable UI/UX templates and modules?</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="question-6A-content" class="question-content">
+                            <div class="question-content-inner">
+                                <p>We provide a set of preconfigured UI templates that customers can choose from. For enterprise customers, depending on our engagement model, we also build specific UX patterns, plugins or assets as required for their use and later for general availability on the platform.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question B -->
+                    <div class="question-item">
+                        <button class="question-header" aria-expanded="false" aria-controls="question-6B-content">
+                            <span class="question-letter">B</span>
+                            <span class="question-text">How easy is it to customize and reuse components across different use cases?</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="question-6B-content" class="question-content">
+                            <div class="question-content-inner">
+                                <p>Customization is writing plain .net C# code or database related code based on the architectural choices. This is plain and straight forward, with no need to learn specific programming scripts or languages.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 7 -->
+            <div class="accordion-section">
+                <button class="section-header" aria-expanded="false" aria-controls="section-7-content">
+                    <span class="section-number">7</span>
+                    <span class="section-title">Analytics & Intelligence</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div id="section-7-content" class="section-content">
+                    <!-- Question A -->
+                    <div class="question-item">
+                        <button class="question-header" aria-expanded="false" aria-controls="question-7A-content">
+                            <span class="question-letter">A</span>
+                            <span class="question-text">Do your applications support embedded analytics or dashboards?</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="question-7A-content" class="question-content">
+                            <div class="question-content-inner">
+                                <p>We support basic charts and graphs out of the box. Simple dashboards could be configured out of the box. Enterprise customers are free to use their existing analytics investments by connecting our transactional data source read replicas or building their specific analytical data stores.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question B -->
+                    <div class="question-item">
+                        <button class="question-header" aria-expanded="false" aria-controls="question-7B-content">
+                            <span class="question-letter">B</span>
+                            <span class="question-text">Can you enable real-time alerts and event-driven automation within the apps?</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="question-7B-content" class="question-content">
+                            <div class="question-content-inner">
+                                <p>Basic alerts are generated from the applications for default workflows configured. Event driven automation is planned in the upcoming releases of the platform.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 8 -->
+            <div class="accordion-section">
+                <button class="section-header" aria-expanded="false" aria-controls="section-8-content">
+                    <span class="section-number">8</span>
+                    <span class="section-title">Commercial & Engagement Models</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div id="section-8-content" class="section-content">
+                    <!-- Question A -->
+                    <div class="question-item">
+                        <button class="question-header" aria-expanded="false" aria-controls="question-8A-content">
+                            <span class="question-letter">A</span>
+                            <span class="question-text">What pricing models do you offer (user-based, feature-based, per app)?</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="question-8A-content" class="question-content">
+                            <div class="question-content-inner">
+                                <p>Mahat revolutionizes software development pricing through its <strong>Mahat Business Action (MBA)</strong> model, a standardized unit to measure an application's size and cost. Check <a href="https://mahat.ai/pricing">Mahat Pricing</a> for a detailed explanation.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question B -->
+                    <div class="question-item">
+                        <button class="question-header" aria-expanded="false" aria-controls="question-8B-content">
+                            <span class="question-letter">B</span>
+                            <span class="question-text">Are you open to white-label, licensing, or joint GTM models with partners?</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="question-8B-content" class="question-content">
+                            <div class="question-content-inner">
+                                <p>We are open to licensing, joint GTM models</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question C -->
+                    <div class="question-item">
+                        <button class="question-header" aria-expanded="false" aria-controls="question-8C-content">
+                            <span class="question-letter">C</span>
+                            <span class="question-text">What flexibility do you provide for enterprise licensing or OEM integration?</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="question-8C-content" class="question-content">
+                            <div class="question-content-inner">
+                                <ul>
+                                    <li>Volume based discounts</li>
+                                    <li>Custom bundling of platform access, services and pre-release access, priority on roadmap features</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 9 -->
+            <div class="accordion-section">
+                <button class="section-header" aria-expanded="false" aria-controls="section-9-content">
+                    <span class="section-number">9</span>
+                    <span class="section-title">Technical Collaboration Potential</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div id="section-9-content" class="section-content">
+                    <!-- Question A -->
+                    <div class="question-item">
+                        <button class="question-header" aria-expanded="false" aria-controls="question-9A-content">
+                            <span class="question-letter">A</span>
+                            <span class="question-text">Can your platform support integration with GenAI or agentic AI experiences?</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="question-9A-content" class="question-content">
+                            <div class="question-content-inner">
+                                <p>We can support integration with Gen AI based experiences. We can also facilitate customers to move towards native interfaces with agentic ai experiences in our upcoming releases.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question B -->
+                    <div class="question-item">
+                        <button class="question-header" aria-expanded="false" aria-controls="question-9B-content">
+                            <span class="question-letter">B</span>
+                            <span class="question-text">Is the platform deployable via container (Docker/Kubernetes) for on-prem or private cloud hosting?</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="question-9B-content" class="question-content">
+                            <div class="question-content-inner">
+                                <p>The platform is deployable via containers. But our on-prem hosting model might not be recommended due to high maintainability challenges and the commercial impact.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 10 -->
+            <div class="accordion-section">
+                <button class="section-header" aria-expanded="false" aria-controls="section-10-content">
+                    <span class="section-number">10</span>
+                    <span class="section-title">Proof of Value</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div id="section-10-content" class="section-content">
+                    <!-- Question A -->
+                    <div class="question-item">
+                        <button class="question-header" aria-expanded="false" aria-controls="question-10A-content">
+                            <span class="question-letter">A</span>
+                            <span class="question-text">Can you share examples of clients who built and scaled apps with measurable ROI?</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="question-10A-content" class="question-content">
+                            <div class="question-content-inner">
+                                <p>Four case studies (9 slides) can be accessed <a href="https://ragumahat.github.io/landings/Mahat_CaseStudies.pdf">here</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question B -->
+                    <div class="question-item">
+                        <button class="question-header" aria-expanded="false" aria-controls="question-10B-content">
+                            <span class="question-letter">B</span>
+                            <span class="question-text">Are you able to commit to a short-term PoC with clear success criteria?</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="question-10B-content" class="question-content">
+                            <div class="question-content-inner">
+                                <p>Yes, our primary engagement model is way better than a PoC because what we offer is a functional Minimum Viable Product (MVP) in 3 to 5 days for the purpose of discovering the full scope of the application. We call this offer PoP: Proof of Platform.</p>
+
+                                <div class="highlight-box">
+                                    <h5>What will be present in the MVP?</h5>
+                                    <ol>
+                                        <li>The default <em>Technology and User Experience architectural parameters</em> are fully configured.</li>
+                                        <li>In the Business Architecture, the stakeholders, functions, processes, <em>representative core business objects</em> and their actions are all fully configured and available to test.</li>
+                                    </ol>
+                                </div>
+
+                                <div class="highlight-box">
+                                    <h5>What will not be present in the MVP?</h5>
+                                    <ol>
+                                        <li>Master Business Objects and Transactional Business Objects that the <em>already configured Business Objects are a representative of</em> will not be present.</li>
+                                        <li>Complex Transactional Business Objects are partially configured.</li>
+                                        <li>Objects or their aspects that cannot be visually configured on the platform need to be custom-coded. Except simple custom coding, anything else needing more than a day will not be present in the MVP. For a mid-size application that is fit for Mahat, maxium custom coding could be up to 30% of app features.</li>
+                                    </ol>
+                                </div>
+
+                                <p>We choose the scope of the MVP such that, with reference to it, the effort needed for the full scope of the application can be easily determined. This is because, except for complex custom coding (if necessary), all else can be quantitatively extrapolated from the MVP.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize all accordion sections
+            const sections = document.querySelectorAll('.accordion-section');
+
+            sections.forEach(section => {
+                const header = section.querySelector('.section-header');
+                const content = section.querySelector('.section-content');
+                const questions = section.querySelectorAll('.question-item');
+
+                // Set initial state
+                header.setAttribute('aria-expanded', 'false');
+                content.style.maxHeight = '0';
+
+                // Section click handler
+                header.addEventListener('click', function() {
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+
+                    if (!isExpanded) {
+                        // Expand section to full content height
+                        content.style.maxHeight = '5000px'; // Large enough for all content
+                    } else {
+                        // Collapse section and all questions
+                        content.style.maxHeight = '0';
+                        questions.forEach(question => {
+                            const qHeader = question.querySelector('.question-header');
+                            const qContent = question.querySelector('.question-content');
+                            qHeader.setAttribute('aria-expanded', 'false');
+                            qContent.style.maxHeight = '0';
+                        });
+                    }
+                });
+
+                // Initialize questions
+                questions.forEach(question => {
+                    const qHeader = question.querySelector('.question-header');
+                    const qContent = question.querySelector('.question-content');
+
+                    qHeader.setAttribute('aria-expanded', 'false');
+                    qContent.style.maxHeight = '0';
+
+                    // Question click handler
+                    qHeader.addEventListener('click', function() {
+                        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                        this.setAttribute('aria-expanded', !isExpanded);
+
+                        if (!isExpanded) {
+                            // Expand to large enough height for all content
+                            qContent.style.maxHeight = '5000px';
+
+                            // Scroll question into view if needed
+                            setTimeout(() => {
+                                question.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'nearest'
+                                });
+                            }, 100);
+                        } else {
+                            qContent.style.maxHeight = '0';
+                        }
+                    });
+                });
+            });
+
+            // Close all when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.accordion-section') && !e.target.closest('.question-item')) {
+                    sections.forEach(section => {
+                        const header = section.querySelector('.section-header');
+                        const content = section.querySelector('.section-content');
+                        const questions = section.querySelectorAll('.question-item');
+
+                        if (header.getAttribute('aria-expanded') === 'true') {
+                            header.setAttribute('aria-expanded', 'false');
+                            content.style.maxHeight = '0';
+
+                            questions.forEach(question => {
+                                const qHeader = question.querySelector('.question-header');
+                                const qContent = question.querySelector('.question-content');
+                                qHeader.setAttribute('aria-expanded', 'false');
+                                qContent.style.maxHeight = '0';
+                            });
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
