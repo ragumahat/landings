@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammed Bakodah: Mahat.ai Sales Partnership</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2C3E50;
+            --secondary: #3498DB;
+            --accent: #1ABC9C;
+            --dark: #1A1A1A;
+            --light: #F5F5F5;
+            --paper: #FFFFFF;
+            --ink: #333333;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--ink);
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        .letter-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--paper);
+            padding: 0;
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), #34495E);
+            color: white;
+            padding: 60px 60px 40px;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+
+        .header-date {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .headline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .sub-headline {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 80%;
+        }
+
+        .content-section {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 60px 60px;
+        }
+
+        .salutation {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+
+        .letter-content p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .highlight-box {
+            background: rgba(52, 152, 219, 0.05);
+            border-left: 3px solid var(--secondary);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-box h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .highlight-box ul {
+            padding-left: 25px;
+        }
+
+        .highlight-box li {
+            margin-bottom: 12px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 36px;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .comparison-section {
+            background-color: rgba(26, 188, 156, 0.05);
+            padding: 60px;
+            margin: 40px 0;
+        }
+
+        .comparison-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 auto;
+            max-width: 850px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px 20px;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background-color: rgba(245, 245, 245, 0.7);
+        }
+
+        .comparison-table td:last-child {
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .process-section {
+            padding: 60px;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .process-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .process-step {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            background: var(--secondary);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .call-to-action {
+            background: linear-gradient(135deg, var(--primary), #34495E);
+            padding: 60px;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .cta-subtitle {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid white;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            max-width: 600px;
+            margin: 40px auto 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .form-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(52, 152, 219, 0.3);
+            border-radius: 5px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #34495E;
+            transform: translateY(-2px);
+        }
+
+        .signature-block {
+            text-align: left;
+            margin: 50px 0 0;
+        }
+
+        .signature {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .signature-title {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            color: var(--dark);
+        }
+
+        .contact-info {
+            margin-top: 15px;
+            font-size: 14px;
+            color: var(--dark);
+            opacity: 0.8;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 60px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-link:hover {
+            opacity: 1;
+        }
+
+        .copyright {
+            opacity: 0.6;
+        }
+
+        @media (max-width: 900px) {
+            header, .content-section, .process-section, .comparison-section, .call-to-action {
+                padding: 40px 30px;
+            }
+
+            .headline {
+                font-size: 28px;
+            }
+
+            .sub-headline {
+                font-size: 16px;
+                max-width: 100%;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-table {
+                font-size: 14px;
+            }
+
+            .process-steps {
+                gap: 20px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .cta-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="letter-container">
+        <header>
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="https://mahat.ai/Site/images/Mahat-logo.svg" class="logo" alt="Mahat.ai Logo">
+                    <div class="header-date">April 28, 2025</div>
+                </div>
+                <h1 class="headline">Transform Your VC Advisory Practice with Mahat's Revolutionary App-Generation Technology</h1>
+                <p class="sub-headline">Earn substantial commissions while helping your clients achieve extraordinary time-to-market advantages</p>
+            </div>
+        </header>
+
+        <section class="content-section">
+            <div class="salutation">Dear Mohammed,</div>
+
+            <div class="letter-content">
+                <p>I was impressed by your background in VC financing, M&A, and growing innovative companies across your 12-year career in Corporate Finance and Investment Banking. Your experience makes you an ideal partner for Mahat, whether through Monty Capital or as an independent advisor to your network of technology companies and startups.</p>
+
+                <p>Having reviewed your professional background and Monty Capital's focus on technology-first financial advisory, I see a perfect alignment with Mahat's revolutionary app-generation platform. Our technology can significantly enhance the value you deliver to clients by providing a tangible technological edge that complements your financial advisory services.</p>
+            </div>
+
+            <div class="highlight-box">
+                <h3>Why This Partnership Makes Sense</h3>
+                <ul>
+                    <li><strong>Align with your efficiency focus:</strong> Your reputation for efficiency and automation aligns perfectly with our approach to app development</li>
+                    <li><strong>Leverage your network:</strong> Your connections to technology companies and startups across all growth stages provide an ideal client base</li>
+                    <li><strong>Create new revenue streams:</strong> Substantial partnership commissions complement your existing advisory services</li>
+                    <li><strong>Add unique value:</strong> Differentiate your advisory practice with demonstrable tech acceleration capabilities</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section" style="padding-top: 0;">
+            <h2 style="font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 600; color: var(--primary); margin-bottom: 30px;">How Mahat Transforms Application Development</h2>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-rocket"></i></div>
+                    <div class="feature-title">Unprecedented Speed</div>
+                    <p>We deliver MVPs in 3-7 days and complete applications in 2-4 weeks, 5-10X faster than traditional approaches.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-code-branch"></i></div>
+                    <div class="feature-title">Full Code Ownership</div>
+                    <p>Clients receive full ownership of readable source code with absolutely no vendor lock-in.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-users-cog"></i></div>
+                    <div class="feature-title">Non-Technical Collaboration</div>
+                    <p>Business stakeholders can directly participate in the application creation process.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="feature-title">Cost Efficiency</div>
+                    <p>Up to 70% lower development costs compared to traditional coding approaches.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="comparison-section">
+            <h2>The Mahat Advantage</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Traditional Development</th>
+                        <th>Low-Code Platforms</th>
+                        <th>Mahat App-Generator</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MVP Development</td>
+                        <td>2-3 months</td>
+                        <td>3-4 weeks</td>
+                        <td>3-7 days</td>
+                    </tr>
+                    <tr>
+                        <td>Full App Development</td>
+                        <td>6-9 months</td>
+                        <td>3-5 months</td>
+                        <td>2-4 weeks</td>
+                    </tr>
+                    <tr>
+                        <td>Code Ownership</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Enterprise-Grade</td>
+                        <td>Yes</td>
+                        <td>Limited</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Non-Technical Users</td>
+                        <td>No</td>
+                        <td>Partially</td>
+                        <td>Yes</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="process-section">
+            <h2>How Our Partnership Works</h2>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Identify Opportunities</h3>
+                        <p>Leverage your network to identify companies needing custom applications. Target pre-launch SaaS startups, competitive SMBs, or enterprises seeking to launch new digital initiatives quickly.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Collect Basic Requirements</h3>
+                        <p>Gather high-level application requirements from qualified prospects. We'll provide guidance on what information is needed to begin the development process.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>We Develop an MVP</h3>
+                        <p>Our team will develop a working MVP within just 3-5 days at no cost, demonstrating the power of our platform and providing tangible value to your client.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>You Showcase the MVP</h3>
+                        <p>Present the working application to your client, showcasing how quickly their vision can be transformed into reality with Mahat's technology.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>We Conduct Discovery Workshops</h3>
+                        <p>For clients who want to proceed with full development, we'll facilitate discovery sessions to comprehensively scope the complete application.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h3>You Present Estimates and Close</h3>
+                        <p>We'll provide detailed time and cost estimates that you can present to your client to close the deal, with our team supporting you through the process.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">7</div>
+                    <div class="step-content">
+                        <h3>Earn Substantial Commissions</h3>
+                        <p>Receive generous commissions on all closed deals, with progressive tiers based on deal volume and opportunities for long-term recurring revenue.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="call-to-action">
+            <h2 class="cta-title">Start With Just One Client</h2>
+            <p class="cta-subtitle">Experience our revolutionary approach by sending us one qualified requirement. We'll demonstrate our capabilities by delivering an MVP in days, not months.</p>
+
+            <div class="contact-container" style="background: white; border-radius: 8px; padding: 40px; max-width: 600px; margin: 40px auto 0; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); text-align: center;">
+                <h3 style="font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 600; color: var(--primary); margin-bottom: 25px;">Get in Touch:</h3>
+
+                <div style="margin-bottom: 10px; font-size: 18px; font-weight: 600; color: var(--dark);">Benazir Waheed</div>
+                <div style="margin-bottom: 5px; font-size: 16px; color: var(--secondary);">Head of Sales</div>
+                <div style="margin-bottom: 15px; font-size: 16px;">Mahat.ai</div>
+                <div style="font-size: 16px;"><a href="mailto:connect@mahat.ai" style="color: var(--accent); text-decoration: none; font-weight: 600;">connect@mahat.ai</a></div>
+            </div>
+
+    <script>
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // In a real implementation, this would send data to your backend
+            alert("Thank you for submitting your client's requirement. We'll contact you within 24 hours to discuss next steps.");
+
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>
