@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahat MBA Pricing Model</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #4a90e2;
+            --light-bg: #f8f9fa;
+            --dark-bg: #2c3e50;
+            --text-color: #333;
+            --light-text: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+
+        header {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-text);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 3rem 0;
+        }
+
+        .section-alt {
+            background-color: white;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .quote {
+            font-style: italic;
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .example {
+            background-color: rgba(52, 152, 219, 0.1);
+            border-left: 4px solid var(--secondary-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .example h3 {
+            margin-top: 0;
+        }
+
+        .price-component {
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(0,0,0,0.03);
+        }
+
+        .note {
+            background-color: rgba(74, 144, 226, 0.1);
+            border-left: 4px solid var(--accent-color);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .advantages {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .advantage-card {
+            flex: 1 1 300px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+        }
+
+        .advantage-card h3 {
+            display: flex;
+            align-items: center;
+            margin-top: 0;
+        }
+
+        .icon {
+            background-color: var(--secondary-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.75rem;
+        }
+
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            h3 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="container">
+            <h1>Mahat Business Action (MBA) <br>Pricing Model</h1>
+            <p>A revolutionary approach to software development pricing</p>
+        </div>
+    </div>
+
+    <section class="section">
+        <div class="container">
+            <h2>Introduction to Mahat Business Action (MBA)</h2>
+
+            <div class="card">
+                <p>Mahat revolutionizes software development pricing through its <span class="highlight">Mahat Business Action (MBA)</span> model, a standardized unit to measure application size and cost. An MBA represents a <span class="highlight">business operation</span> performed on business objects within an app, such as:</p>
+
+                <ul>
+                    <li><strong>Basic actions:</strong> Create, Modify, Remove, View.</li>
+                    <li><strong>Advanced operations:</strong> Approve/Reject, Assign/Reassign, State-Change actions.</li>
+                </ul>
+
+                <p>This approach replaces complex metrics like functional points or user stories with a <span class="highlight">transparent, value-based pricing structure</span> because:</p>
+
+                <div class="quote">
+                    The real worth of a software application is only as much as the Business Actions that it helps accomplish effectively.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <h2>Mahat Pricing Model</h2>
+
+            <p>There are two platform related price components:</p>
+
+            <div class="price-component">
+                <h3>1. MBA Cost</h3>
+                <p>Number of MBAs × $150</p>
+            </div>
+
+            <div class="price-component">
+                <h3>2. Platform Subscription Cost*</h3>
+                <p>10% of MBA Cost for a period of 12 months.</p>
+            </div>
+
+            <div class="card">
+                <h3>*Platform Subscription Cost (PSC):</h3>
+                <p>Mahat App-Generator is a SaaS Platform hosted on the cloud. For a customer to be able to develop an application using Mahat App-Generator (by themselves or through a service provider or through Mahat itself), the platform needs to be hosted and maintained along with the data and meta-data of the application.</p>
+
+                <p>PSC is the cost we have arrived based on our calculation of the average cost we incur related to our cloud and maintenance expenditure during the development of a mid-size application (&lt; 200 MBAs). Platform usage (number of users, storage, previews etc) will be restricted to what is required for a mid-size application.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Example: Inventory Management Application</h2>
+
+            <div class="example">
+                <p>An Inventory Management Application is estimated to have 200 MBAs.<br>
+                So, to develop this application, the customer buys a "200 Action Pack"</p>
+
+                <ol>
+                    <li><strong>MBA Cost:</strong> 200 MBAs × $150 = $30,000</li>
+                    <li><strong>PSC:</strong> 10% of $30,000 = $3000 per year. It will be $250/month. If the project is finished in 2 months, the PSC Cost would be $250 × 2 = $500.</li>
+                </ol>
+
+                <p><strong>Total Platform Cost</strong> = MBA Cost + PSC Cost: $30,000 + $500 = $30,500</p>
+            </div>
+
+            <div class="note">
+                <p><strong>Note 1:</strong> If the customer wants to add more features to the same application or wants to create another application, they can <em>top-up</em> MBAs by buying another Action Pack. The PSC for this Action Pack will be calculated in the same way as it is shown in the example above.</p>
+            </div>
+
+            <div class="note">
+                <p><strong>Note 2:</strong> Development costs, that is, the human resource costs for configurations, customization and maintenance will depend on who develops the application and its size and complexity. So, this will vary on a project-by-project basis.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <h2>Key Advantages of MBA Pricing</h2>
+
+            <div class="advantages">
+                <div class="advantage-card">
+                    <h3><span class="icon">1</span> Simplicity</h3>
+                    <p>Single-unit pricing eliminates ambiguity. Non-technical users can easily calculate MBAs of an application (e.g., "Add Customer" = 1 MBA).</p>
+                </div>
+
+                <div class="advantage-card">
+                    <h3><span class="icon">2</span> Predictability</h3>
+                    <p>No hidden fees; costs scale linearly with app complexity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Cost Comparison: MBA vs. Traditional Models</h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Traditional Models</th>
+                            <th>Mahat MBA Model</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Pricing Units</td>
+                            <td>Functional points, User Stories, Screens, APIs, etc.</td>
+                            <td>Business actions (MBAs)</td>
+                        </tr>
+                        <tr>
+                            <td>Cost Transparency</td>
+                            <td>Low (multiple variables)</td>
+                            <td>High (fixed per MBA)</td>
+                        </tr>
+                        <tr>
+                            <td>Development Time</td>
+                            <td>Months</td>
+                            <td>Weeks</td>
+                        </tr>
+                        <tr>
+                            <td>Ownership</td>
+                            <td>Platform lock-in risks and additional costs for Run Time Environment (RTE).</td>
+                            <td>100% source code ownership. No RTE, no additional cost.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+
+</body>
+</html>
