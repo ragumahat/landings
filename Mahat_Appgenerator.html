@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahat - Multi-Architecture App Generation Technology</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero .description {
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.8;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        /* Content Section */
+        .content-section {
+            background: white;
+            padding: 4rem 2rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        /* Accordion Styles */
+        .accordion {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            margin-bottom: 1rem;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .accordion-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+        }
+
+        .accordion-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: white;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 2000px;
+        }
+
+        .accordion-body {
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .accordion-body h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .accordion-body p {
+            margin-bottom: 1rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .accordion-body ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .accordion-body li {
+            margin-bottom: 0.8rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .accordion-body strong {
+            color: #2c3e50;
+        }
+
+        /* Table Styles */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            background: white;
+        }
+
+        .comparison-table tr:nth-child(even) td {
+            background: #f8f9fa;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #ff6b6b20, #ee5a2420);
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .process-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .process-table th {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .process-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            background: white;
+        }
+
+        .process-table tr:nth-child(even) td {
+            background: #f8f9fa;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .accordion-header {
+                padding: 1rem;
+                font-size: 1rem;
+            }
+
+            .accordion-body {
+                padding: 1.5rem;
+            }
+
+            .comparison-table,
+            .process-table {
+                font-size: 0.9rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td,
+            .process-table th,
+            .process-table td {
+                padding: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Mahat</h1>
+            <div class="subtitle">Multi-Architecture Heuristic App-Generation Technology</div>
+            <div class="description">
+                Transform how your enterprise designs, develops, and deploys transactional business applications with our revolutionary AI-driven platform. Build MVPs in 3-5 days, complete applications in weeks, not months.
+            </div>
+            <a href="#content" class="cta-button">Discover Mahat</a>
+        </div>
+        <div class="scroll-indicator" onclick="scrollToContent()">
+            <div style="font-size: 2rem;">⬇</div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section id="content" class="content-section">
+        <div class="container">
+            <h2 class="section-title">Everything You Need to Know About Mahat</h2>
+
+            <div class="accordion">
+                <!-- What is Mahat -->
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>📌 WHAT is Mahat?</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p><strong>Mahat (Multi-Architecture Heuristic App-Generation Technology)</strong> is a revolutionary, AI-driven platform that transforms how enterprises design, develop, and deploy transactional business applications. It uniquely integrates a visual, multi-architecture approach—encompassing <strong>Business</strong>, <strong>Technology</strong>, and <strong>User-Experience</strong> layers—into a cohesive, intuitive development environment.</p>
+
+                            <p>Built upon sophisticated heuristic automation and deep contextual AI, Mahat systematically translates business intent directly into <strong>architecturally sound, scalable, and secure applications</strong>. Unlike traditional coding or conventional low-code tools, Mahat offers complete transparency and real-time collaboration, automatically generating not only fully-functional code but also essential artifacts including <strong>user stories, design documentation, ER diagrams</strong>, and integration-ready APIs.</p>
+
+                            <h3>Key Advantages for the CTO:</h3>
+                            <ul>
+                                <li><strong>Comprehensive Multi-Architecture Framework:</strong> Visual configuration of Business, Technology, and UX architectures accelerates development cycles by aligning technical implementation directly with strategic business objectives.</li>
+                                <li><strong>Heuristic Pattern-Driven Automation:</strong> Mahat's heuristic engine utilizes established best practices and industry-standard patterns to streamline architectural decisions, reduce human error, and enhance the structural integrity of applications.</li>
+                                <li><strong>Contextual AI Collaboration:</strong> Embedded AI provides intelligent recommendations tailored to each architectural layer, ensuring that business requirements seamlessly drive application behavior, significantly reducing requirement misinterpretations and iterative rework.</li>
+                                <li><strong>Enterprise-grade Scalability and Security:</strong> Mahat ensures applications meet rigorous performance standards, robust security protocols, and regulatory compliance frameworks (e.g., OWASP guidelines), critical for maintaining trust and operational integrity.</li>
+                                <li><strong>End-to-End Ownership and Flexibility:</strong> Unlike traditional low-code platforms, Mahat grants complete access and ownership of generated source code without vendor lock-in, allowing for strategic flexibility in hosting, integration, and ongoing customization.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Why is Mahat unique -->
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>📌 WHY is Mahat unique?</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Mahat uniquely combines the best attributes of traditional coding, low-code platforms, and AI app builders:</p>
+
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Criteria</th>
+                                        <th>Mahat Advantage</th>
+                                        <th>Traditional Coding</th>
+                                        <th>Low-Code Platforms</th>
+                                        <th>AI App Builders</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Development Speed</strong></td>
+                                        <td>MVPs in <strong>3-5 days</strong>, full apps in weeks</td>
+                                        <td>Months to years</td>
+                                        <td>Weeks to months</td>
+                                        <td>Quick but lacks customization</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Customization & Visibility</strong></td>
+                                        <td>Full source code, fully transparent</td>
+                                        <td>Complete but slow</td>
+                                        <td>Limited visibility</td>
+                                        <td>Black-box operations</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Human-AI Collaboration</strong></td>
+                                        <td>Context-aware, intuitive AI assistance</td>
+                                        <td>Manual, no AI assistance</td>
+                                        <td>Limited AI integration</td>
+                                        <td>AI-driven but lacks human oversight</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Architectural Integrity</strong></td>
+                                        <td>Multi-layered visual configuration</td>
+                                        <td>Requires extensive planning</td>
+                                        <td>Component-based without full structure</td>
+                                        <td>Functional but often flawed</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Ownership & Vendor Lock-in</strong></td>
+                                        <td>No vendor lock-in, complete ownership</td>
+                                        <td>Ownership but high cost</td>
+                                        <td>Proprietary dependencies</td>
+                                        <td>Proprietary dependencies</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Risk & Iteration</strong></td>
+                                        <td>Risk-free rapid prototyping</td>
+                                        <td>High risk, costly changes</td>
+                                        <td>Medium risk, moderate iteration</td>
+                                        <td>Iterative, lacks depth and customization</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="highlight">
+                                <p><em>"Mahat allowed us to launch efficiently, saving significant costs, time, and reputation. The ROI from this app has been the best we've seen in years."</em></p>
+                                <p><strong>-- CIO, Global Marine Group</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Who can build with Mahat -->
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>📌 WHO can build with Mahat?</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Mahat is ideal for <strong>startups</strong>, <strong>SMBs</strong>, and <strong>enterprises</strong> that:</p>
+                            <ul>
+                                <li><strong>Need custom business applications</strong> tailored specifically to their operations.</li>
+                                <li>Are <strong>embracing digital transformation</strong> with rapid, agile development.</li>
+                                <li>Have an <strong>acute need for application development</strong> to become tech-first organizations.</li>
+                                <li>Understand that <strong>innovative applications</strong> significantly enhance efficiency, provide high leverage, and strategic advantages over competition.</li>
+                                <li>Are <strong>agile</strong> and capable of making rapid decisions to iterate applications quickly.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Where is Mahat useful -->
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>📌 WHERE is Mahat Useful?</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Mahat builds versatile Transactional Business Applications (TBA) across four major categories:</p>
+
+                            <h3>1. SaaS Applications</h3>
+                            <p>Multi-tenant cloud applications, highly configurable to industry standards:</p>
+                            <ul>
+                                <li><strong>Construction:</strong> Project Management SaaS</li>
+                                <li><strong>Healthcare:</strong> Electronic Health Records</li>
+                                <li><strong>Retail:</strong> Vendor Management SaaS</li>
+                                <li><strong>Manufacturing:</strong> Product Lifecycle Management</li>
+                            </ul>
+
+                            <h3>2. Core Systems</h3>
+                            <p>Essential enterprise systems to manage internal departmental workflows:</p>
+                            <ul>
+                                <li><strong>Transportation & Logistics:</strong> Fleet Management</li>
+                                <li><strong>Automotive:</strong> Vehicle Sales Management</li>
+                                <li><strong>Finance:</strong> Loan Origination Systems</li>
+                            </ul>
+
+                            <h3>3. Experience Enhancers</h3>
+                            <p>Applications that enhance interactions with external stakeholders:</p>
+                            <ul>
+                                <li><strong>Sales:</strong> Customer Relationship Management (CRM)</li>
+                                <li><strong>Procurement:</strong> Vendor Onboarding & Management</li>
+                                <li><strong>Distribution:</strong> Distributor Shipment Tracking</li>
+                            </ul>
+
+                            <h3>4. Productivity Enablers</h3>
+                            <p>Digitizing manual processes for internal efficiencies:</p>
+                            <ul>
+                                <li><strong>Marketing:</strong> Campaign Approval Workflow</li>
+                                <li><strong>HR:</strong> Employee Training Tracker</li>
+                                <li><strong>Service Delivery:</strong> Client Service Request Management</li>
+                            </ul>
+                             <h3>See <strong><a href="https://mahat.ai/mahat_apps">more details</a></strong> on each category with examples across top 10 industries.</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- When can Mahat deliver -->
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>📌 WHEN can Mahat deliver apps?</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+
+
+                            <p>Mahat's <strong><a href="https://mahat.ai/PoP">Proof of Platform"</a></strong> (PoP) offer rapidly demonstrates the power of its technology:</p>
+                            <ul>
+                                <li><strong>MVP in 3-5 days:</strong> Functional application, ready for user feedback and iteration.</li>
+                                <li><strong>Full Applications</strong> (up to 200 user stories): Delivered within <strong>2-4 weeks</strong>.</li>
+                                <li><strong>Enterprise-grade applications</strong> (up to 400 actions): Delivered within <strong>12-16 weeks</strong>.</li>
+                            </ul>
+
+                            <h3>Mahat's Rapid Development Process:</h3>
+                            <table class="process-table">
+                                <thead>
+                                    <tr>
+                                        <th>Step</th>
+                                        <th>Timeline</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Submit Idea</strong></td>
+                                        <td>Day 0</td>
+                                        <td>Provide basic requirement, no exhaustive details</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Receive MVP</strong></td>
+                                        <td>Days 3-5</td>
+                                        <td>Fully functional MVP delivered for immediate testing</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Gather Feedback</strong></td>
+                                        <td>Days 5-7</td>
+                                        <td>Interactive review for rapid adjustments</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Finalize App</strong></td>
+                                        <td>Weeks 2-4</td>
+                                        <td>Complete app configuration and customization</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleAccordion(header) {
+            const item = header.parentElement;
+            const isActive = item.classList.contains('active');
+
+            // Close all accordion items
+            document.querySelectorAll('.accordion-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+
+        function scrollToContent() {
+            document.getElementById('content').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Add smooth scrolling for anchor links
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
